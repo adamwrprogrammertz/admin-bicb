@@ -71,7 +71,19 @@ onSubmit(){
 
       }).then(()=>{
         this.statuService.progressBarStatus = false;
-        this.snackBar.open("Customer Detail Published 😁😁","",{duration:2000})
+        this.snackBar.open("Customer Detail Published 😁😁","",{duration:2000});
+        this.customerName = "";
+        this.customerNature = "";
+        this.customerPhone = "";
+        this.customerGender = "";
+        this.customerBirth = "";
+        this.customerMarital = "";
+        this.customerIdType = "";
+        this.customerIdNumber = "";
+        this.customerSpauseName = "";
+        this.customerResidentalAddress = "";
+        this.customerImg = "";
+
       })
 
     });
