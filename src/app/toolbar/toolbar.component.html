@@ -5,12 +5,11 @@
     <div style="margin-left: 10px;margin-right: 10px;cursor: pointer;">{{nameFromGoogleAccount}}</div>
   </div>
 
-  <div class="searchBoxContainer">
-<input matInput type="search" [(ngModel)]="value">
-<button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-  <!-- <mat-icon>close</mat-icon> -->
-</button>
-
+  <div>
+    <input matInput type="search" [(ngModel)]="value" class="searchBoxContainer">
+    <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+      <!-- <mat-icon>close</mat-icon> -->
+    </button>
 </div>
     
   
