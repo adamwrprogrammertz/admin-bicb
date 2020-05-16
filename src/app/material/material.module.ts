@@ -10,9 +10,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatListModule} from '@angular/material/list';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const materialModules = [
   MatInputModule,
@@ -26,7 +27,8 @@ const materialModules = [
   MatProgressBarModule,
   MatSnackBarModule,
   MatTabsModule,
-  MatDividerModule
+  MatDividerModule,
+  MatDatepickerModule
 ]
 
 @NgModule({

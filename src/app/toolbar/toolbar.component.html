@@ -1,9 +1,11 @@
 <div fxLayout="row" fxLayoutAlign="space-between center" style="padding: 10px;">
 
   <div fxLayout="row" fxLayoutAlign="space-evenly center">
-    <img src="imageUrlFromGoogleAccount" style="border-radius: 50%;width: 20px;height: 20px;cursor: pointer;"/>
+    <img src={{imageUrlFromGoogleAccount}} style="border-radius: 50%;width: 20px;height: 20px;">
     <div style="margin-left: 10px;margin-right: 10px;cursor: pointer;">{{nameFromGoogleAccount}}</div>
   </div>
+
+
 
   <div>
     <button mat-raised-button style="margin-right: 10px;" routerLink="/admin-login" *ngIf="hideButton === false">Login With Google</button>

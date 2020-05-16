@@ -6,7 +6,7 @@
       <mat-card style="background-color: whitesmoke;width: 100%;">
         <div fxLayout="row" fxLayoutAlign="space-between center">
           <div fxLayout="row">
-            <img src="https://photo-cdn.icons8.com/assets/previews/729/35b9365a-7fe4-459c-ac3e-5623c8574bd7.jpg" style="border-radius: 50%;width: 50px;height: 50px;cursor: pointer;"/>
+            <img src="https://photo-cdn.icons8.com/assets/previews/729/35b9365a-7fe4-459c-ac3e-5623c8574bd7.jpg" style="border-radius: 50%;width: 50px;height: 50px;">
             <div style="margin-top: 15px;margin-left: 10px;">Name</div>
           </div>
 
@@ -15,89 +15,6 @@
       </mat-card>
     </mat-list-item>
 
-    <mat-list-item role="listitem" style="margin-bottom: 40px;">
-      <mat-card style="background-color: whitesmoke;width: 100%;">
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-
-            <img src="https://photo-cdn.icons8.com/assets/previews/729/35b9365a-7fe4-459c-ac3e-5623c8574bd7.jpg" style="border-radius: 50%;width: 50px;height: 50px;cursor: pointer;"/>
-
-            <button mat-stroked-button>Bado</button>
-
-        </div>
-      </mat-card>
-    </mat-list-item>
-
-    <mat-list-item role="listitem" style="margin-bottom: 40px;">
-      <mat-card style="background-color: whitesmoke;width: 100%;">
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-
-            <img src="https://photo-cdn.icons8.com/assets/previews/729/35b9365a-7fe4-459c-ac3e-5623c8574bd7.jpg" style="border-radius: 50%;width: 50px;height: 50px;cursor: pointer;"/>
-
-            <button mat-stroked-button>Registered</button>
-
-        </div>
-      </mat-card>
-    </mat-list-item>
-
-    <mat-list-item role="listitem" style="margin-bottom: 40px;">
-      <mat-card style="background-color: whitesmoke;width: 100%;">
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-
-            <img src="https://photo-cdn.icons8.com/assets/previews/729/35b9365a-7fe4-459c-ac3e-5623c8574bd7.jpg" style="border-radius: 50%;width: 50px;height: 50px;cursor: pointer;"/>
-
-            <button mat-stroked-button>Registered</button>
-
-        </div>
-      </mat-card>
-    </mat-list-item>
-
-    <mat-list-item role="listitem" style="margin-bottom: 40px;">
-      <mat-card style="background-color: whitesmoke;width: 100%;">
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-
-            <img src="https://photo-cdn.icons8.com/assets/previews/729/35b9365a-7fe4-459c-ac3e-5623c8574bd7.jpg" style="border-radius: 50%;width: 50px;height: 50px;cursor: pointer;"/>
-
-            <button mat-stroked-button>Registered</button>
-
-        </div>
-      </mat-card>
-    </mat-list-item>
-
-    <mat-list-item role="listitem" style="margin-bottom: 40px;">
-      <mat-card style="background-color: whitesmoke;width: 100%;">
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-
-            <img src="https://photo-cdn.icons8.com/assets/previews/729/35b9365a-7fe4-459c-ac3e-5623c8574bd7.jpg" style="border-radius: 50%;width: 50px;height: 50px;cursor: pointer;"/>
-
-            <button mat-stroked-button>Registered</button>
-
-        </div>
-      </mat-card>
-    </mat-list-item>
-
-    <mat-list-item role="listitem" style="margin-bottom: 40px;">
-      <mat-card style="background-color: whitesmoke;width: 100%;">
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-
-            <img src="https://photo-cdn.icons8.com/assets/previews/729/35b9365a-7fe4-459c-ac3e-5623c8574bd7.jpg" style="border-radius: 50%;width: 50px;height: 50px;cursor: pointer;"/>
-
-            <button mat-stroked-button>Registered</button>
-
-        </div>
-      </mat-card>
-    </mat-list-item>
-
-    <mat-list-item role="listitem" style="margin-bottom: 40px;">
-      <mat-card style="background-color: whitesmoke;width: 100%;">
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-
-            <img src="https://photo-cdn.icons8.com/assets/previews/729/35b9365a-7fe4-459c-ac3e-5623c8574bd7.jpg" style="border-radius: 50%;width: 50px;height: 50px;cursor: pointer;"/>
-
-            <button mat-stroked-button>Registered</button>
-
-        </div>
-      </mat-card>
-    </mat-list-item>
   </mat-list>
 </div>
 
@@ -105,87 +22,103 @@
 
   <div style="text-align: center;">
     <label for="file">Choose Customer Image</label>
-          <input type="file" (change)="uploadImg($event)" accept=".png,.jpg" />
+    <input type="file" (change)="uploadImg($event)" accept=".png,.jpg" />
   </div>
 
-  <form class="example-form">
+  <form class="example-form" #form="ngForm" (ngSubmit)="onSubmit()">
 
     <mat-card style="background-color: whitesmoke;margin-bottom: 10px;">
-      <mat-form-field floatLabel="never" class="example-full-width ">
+      <mat-form-field class="example-full-width ">
         <mat-label>Customer Name</mat-label>
-        <input matInput>
+        <input matInput required name= "customer_name" [(ngModel)]="customerName" placeholder="Customer Name">
       </mat-form-field>
     </mat-card>
 
 
     <mat-card style="background-color: whitesmoke;margin-bottom: 10px;">
-      <mat-form-field class="example-full-width " floatLabel="never">
-        <input matInput placeholder="Nature Of Customer">
+      <mat-form-field class="example-full-width ">
+        <mat-label>Nature Of Customer</mat-label>
+        <input matInput placeholder="Nature Of Customer" name= "customer_nature" required [(ngModel)]="customerNature">
       </mat-form-field>
     </mat-card>
 
     <mat-card style="background-color: whitesmoke;margin-bottom: 10px;">
-      <mat-form-field class="example-full-width " floatLabel="never">
-        <input matInput placeholder="Nature Of Customer">
+      <mat-form-field class="example-full-width">
+        <mat-label>Telephone</mat-label>
+        <span matPrefix>+255 &nbsp;</span>
+        <input type="tel" matInput placeholder="XXX-000-000" required name= "customer_tel" [(ngModel)]="customerPhone">
+        <mat-icon matSuffix>mode_edit</mat-icon>
+      </mat-form-field>
+    </mat-card>
+
+
+    <mat-card style="background-color: whitesmoke;margin-bottom: 10px;">
+      <mat-form-field class="example-full-width ">
+        <mat-label>Gender</mat-label>
+        <select matNativeControl required [(ngModel)]="customerGender" name= "customer_gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
       </mat-form-field>
     </mat-card>
 
     <mat-card style="background-color: whitesmoke;margin-bottom: 10px;">
-      <mat-form-field class="example-full-width " floatLabel="never">
-        <input matInput placeholder="Gender">
+      <mat-form-field class="example-full-width ">
+        <mat-label>Date of Birth</mat-label>
+        <input matInput [matDatepicker]="picker" required [(ngModel)]="customerBirth" name= "customer_birth">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
     </mat-card>
 
     <mat-card style="background-color: whitesmoke;margin-bottom: 10px;">
-      <mat-form-field class="example-full-width " floatLabel="never">
-        <input matInput placeholder="Date of Birth">
+      <mat-form-field class="example-full-width ">
+        <mat-label>Marital Status</mat-label>
+        <select matNativeControl required [(ngModel)]="customerMarital" name= "customer_marital_status">
+          <option value="married">Married</option>
+          <option value="single">Single</option>
+        </select>
       </mat-form-field>
     </mat-card>
 
     <mat-card style="background-color: whitesmoke;margin-bottom: 10px;">
-      <mat-form-field class="example-full-width " floatLabel="never">
-        <input matInput placeholder="Marital Status">
+      <mat-form-field class="example-full-width ">
+        <mat-label>Id Type</mat-label>
+        <select matNativeControl required [(ngModel)]="customerIdType" name= "customer_id_type">
+          <option value="volvo">National Id</option>
+          <option value="saab">Kadi Ya Kupiga Kura</option>
+        </select>
       </mat-form-field>
     </mat-card>
 
     <mat-card style="background-color: whitesmoke;margin-bottom: 10px;">
-      <mat-form-field class="example-full-width " floatLabel="never">
-        <input matInput placeholder="Id Type">
+      <mat-form-field class="example-full-width ">
+        <mat-label>Id Number</mat-label>
+        <input matInput placeholder="Id Number" required [(ngModel)]="customerIdNumber" name= "customer_id_number">
       </mat-form-field>
     </mat-card>
 
     <mat-card style="background-color: whitesmoke;margin-bottom: 10px;">
-      <mat-form-field class="example-full-width " floatLabel="never">
-        <input matInput placeholder="Id Number">
+      <mat-form-field class="example-full-width ">
+        <mat-label>Spause Name</mat-label>
+        <input matInput placeholder="Spause Name" required [(ngModel)]="customerSpauseName" name= "customer_spause_name">
       </mat-form-field>
     </mat-card>
 
     <mat-card style="background-color: whitesmoke;margin-bottom: 10px;">
-      <mat-form-field class="example-full-width " floatLabel="never">
-        <input matInput placeholder="Spause Name">
+      <mat-form-field class="example-full-width ">
+        <mat-label>Residental Address</mat-label>
+        <input matInput placeholder="Residental Address" required [(ngModel)]="customerResidentalAddress" name= "customer_address">
       </mat-form-field>
     </mat-card>
 
-    <mat-card style="background-color: whitesmoke;margin-bottom: 10px;">
-      <mat-form-field class="example-full-width " floatLabel="never">
-        <input matInput placeholder="Residental Address">
-      </mat-form-field>
-    </mat-card>
 
-    <mat-card style="background-color: whitesmoke;margin-bottom: 10px;">
-      <mat-form-field class="example-full-width " floatLabel="never">
-        <input matInput placeholder="Client Contants">
-      </mat-form-field>
-
-    </mat-card>
-
-    <button mat-raised-button type="submit" style="margin-right: 10px;">Register</button>
+    <button mat-raised-button type="submit" style="margin-right: 10px;" [disabled]="form.invalid">Register</button>
     <button mat-raised-button (click)="changeLayout('all')">Show Customers</button>
 
   </form>
 
 </div>
-
 
 <button mat-fab color="primary" style=" position: fixed !important;right: 50px;top:600px " (click)="changeLayout('register')" *ngIf="layoutChoose !== 'register' ">
   <mat-icon>add</mat-icon>
