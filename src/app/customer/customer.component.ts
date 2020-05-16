@@ -1,4 +1,10 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import * as firebase from 'firebase';
+import { AllFireService } from '../all-fire.service';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { StatusCheckService } from '../status-check.service';
 
 @Component({
   selector: 'app-customer',
@@ -20,10 +26,15 @@ export class CustomerComponent implements OnInit {
   customerIdNumber;
   customerSpauseName;
   customerResidentalAddress;
+  customerImg;
 
-  @ViewChild('form') customerForm: any;
+  imgCustomerUrl: any;
 
-  constructor() { }
+  constructor(public serviceFb:AllFireService,
+    private statuService:StatusCheckService,
+    private afAuth:AngularFireAuth,
+    private db: AngularFirestore,
+    private afStorage: AngularFireStorage) { }
 
   ngOnInit(): void {
   }
@@ -37,9 +48,31 @@ uploadImg(event){
 }
 
 onSubmit(){
-  if(this.customerForm.valid){
-    this.customerForm.reset();
-  }
+  this.statuService.progressBarStatus = true;
+  let storageRef = firebase.storage().ref();
+  let imgRef = storageRef.child('Customers/Img/'+this.customerName+"_"+this.customerIdNumber);
+  imgRef.put(this.fileImg).then(()=>{
+    imgRef.getDownloadURL().then(url=>{
+      this.imgCustomerUrl = url;
+
+      this.serviceFb.uploadCustomerDetails({
+        customerImgFile:this.imgCustomerUrl,
+        name:this.customerName,
+        nature:this.customerNature,
+        phone:this.customerPhone,
+        gender:this.customerGender,
+        birth:this.customerBirth,
+        maritalStatus:this.customerMarital,
+        id_type:this.customerIdType,
+        spauseName:this.customerSpauseName,
+        residentAddress:this.customerResidentalAddress
+
+      }).then(()=>{
+        this.statuService.progressBarStatus = false;
+      })
+
+    });
+  });
 }
 
 
