@@ -5,6 +5,7 @@ import { AllFireService } from '../all-fire.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { StatusCheckService } from '../status-check.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-customer',
@@ -34,6 +35,7 @@ export class CustomerComponent implements OnInit {
     private statuService:StatusCheckService,
     private afAuth:AngularFireAuth,
     private db: AngularFirestore,
+    private snackBar:MatSnackBar,
     private afStorage: AngularFireStorage) { }
 
   ngOnInit(): void {
@@ -69,6 +71,7 @@ onSubmit(){
 
       }).then(()=>{
         this.statuService.progressBarStatus = false;
+        this.snackBar.open("Customer Detail Published 😁😁","",{duration:2000})
       })
 
     });
