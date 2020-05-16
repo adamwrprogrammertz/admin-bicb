@@ -5,14 +5,15 @@
     <div style="margin-left: 10px;margin-right: 10px;cursor: pointer;">{{nameFromGoogleAccount}}</div>
   </div>
 
-  <form class="example-form">
-    <mat-form-field class="example-form-field">
-      <input matInput type="text" [(ngModel)]="value">
-      <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-        <mat-icon>close</mat-icon>
-      </button>
-    </mat-form-field>
-  </form>
+  <div>
+    <input matInput type="search" [(ngModel)]="value">
+    <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+   
+  
+  
 
   <div>
     <button mat-raised-button style="margin-right: 10px;" routerLink="/admin-login" *ngIf="hideButton === false">Login With Google</button>
