@@ -9,7 +9,7 @@ import { StatusCheckService } from '../status-check.service';
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent implements OnInit {
-  value = "Search Here";
+  value : any;
   hideButton;
   nameFromGoogleAccount;
   imageUrlFromGoogleAccount;
