@@ -14,12 +14,18 @@ export class AllFireService {
    //Upload Customer Details
    async uploadCustomerDetails(data: CustomerModel) {
     const user = await this.afAuth.currentUser;
-    this.db.collection('CustomerDetails').doc(user.uid).collection(user.uid).add({
+    this.db.collection('CustomerDetails').add({
       ...data,
-      adminId: user.uid
+      adminName: user.displayName
     }).catch((error) => {
       console.log(error);
     });
+  }
+
+
+  //Load all Customers
+  getAllCustomerDetail(){
+    return this.db.collection('CustomerDetails').snapshotChanges();
   }
 
 }

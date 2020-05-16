@@ -14,6 +14,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class CustomerComponent implements OnInit {
 
+  customerObjectFromFirebase:any;
+
   layoutChoose:"register"|"all"="all";
   fileImg:File;
 
@@ -36,9 +38,20 @@ export class CustomerComponent implements OnInit {
     private afAuth:AngularFireAuth,
     private db: AngularFirestore,
     private snackBar:MatSnackBar,
-    private afStorage: AngularFireStorage) { }
+    private afStorage: AngularFireStorage) {}
 
   ngOnInit(): void {
+    this.statuService.progressBarStatus = true;
+    this.serviceFb.getAllCustomerDetail().subscribe(datas=>{
+      if(datas != null){
+        this.customerObjectFromFirebase = datas;
+        this.statuService.progressBarStatus = false;
+      console.log(datas)
+      }else{
+        //No data
+      }
+
+    })
   }
 
   changeLayout(status){

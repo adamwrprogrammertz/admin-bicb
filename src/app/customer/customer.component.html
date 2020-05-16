@@ -2,12 +2,18 @@
 <div *ngIf="layoutChoose === 'all' ">
   <mat-list role="list">
 
-    <mat-list-item role="listitem" style="margin-bottom: 40px;">
+    <mat-list-item role="listitem" style="margin-bottom: 40px;" *ngFor="let customerDetails of customerObjectFromFirebase">
       <mat-card style="background-color: whitesmoke;width: 100%;">
         <div fxLayout="row" fxLayoutAlign="space-between center">
           <div fxLayout="row">
-            <img src="https://photo-cdn.icons8.com/assets/previews/729/35b9365a-7fe4-459c-ac3e-5623c8574bd7.jpg" style="border-radius: 50%;width: 50px;height: 50px;">
-            <div style="margin-top: 15px;margin-left: 10px;">Name</div>
+
+            <img src={{customerDetails.payload.doc.data().customerImgFile}} style="border-radius: 50%;width: 50px;height: 50px;">
+
+            <div fxLayout="column" fxLayoutAlign="space-around start" style="margin-left: 10px;">
+              <div>{{customerDetails.payload.doc.data().name}}</div>
+              <div style="font-weight: 100;font-size: small;">{{"Added By "+customerDetails.payload.doc.data().adminName}}</div>
+            </div>
+
           </div>
 
           <button mat-stroked-button>Complete</button>
