@@ -77,6 +77,7 @@
         <select matNativeControl required [(ngModel)]="customerMarital" name= "customer_marital_status">
           <option value="married">Married</option>
           <option value="single">Single</option>
+          <option value="Widow">Widow</option>
         </select>
       </mat-form-field>
     </mat-card>
@@ -85,8 +86,10 @@
       <mat-form-field class="example-full-width ">
         <mat-label>Id Type</mat-label>
         <select matNativeControl required [(ngModel)]="customerIdType" name= "customer_id_type">
-          <option value="volvo">National Id</option>
-          <option value="saab">Kadi Ya Kupiga Kura</option>
+          <option value="National_Id">National Id</option>
+          <option value="Kadi_Ya_Kupiga_Kura">Kadi Ya Kupiga Kura</option>
+          <option value="Driving_Licence">Driving Licence</option>
+
         </select>
       </mat-form-field>
     </mat-card>
@@ -101,7 +104,7 @@
     <mat-card style="background-color: whitesmoke;margin-bottom: 10px;">
       <mat-form-field class="example-full-width ">
         <mat-label>Spause Name</mat-label>
-        <input matInput placeholder="Spause Name" required [(ngModel)]="customerSpauseName" name= "customer_spause_name">
+        <input matInput placeholder="Spause Name" [required]="customerMarital === 'married' " [(ngModel)]="customerSpauseName" name= "customer_spause_name">
       </mat-form-field>
     </mat-card>
 

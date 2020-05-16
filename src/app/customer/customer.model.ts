@@ -8,6 +8,6 @@ export interface CustomerModel{
   birth:string;
   maritalStatus:string;
   id_type:string;
-  spauseName:string;
+  spauseName?:string;
   residentAddress:string;
 }
