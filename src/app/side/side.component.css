@@ -1,0 +1,13 @@
+[dashOpt] {
+margin-top: 10px;
+transition: 0.7s;
+padding-bottom: 10px;
+cursor: pointer;
+padding: 10px;
+}
+
+[dashOpt]:hover {
+  background-color: lightgrey;
+transition: 0.7s;
+
+}
