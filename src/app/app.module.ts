@@ -16,6 +16,8 @@ import { ConnectedAccountComponent } from './connected-account/connected-account
 import { ReportComponent } from './report/report.component';
 import { SettingComponent } from './setting/setting.component';
 import {  FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { GoogelSignDirective } from './googel-sign.directive';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import {  FormsModule } from '@angular/forms';
     CustomerComponent,
     ConnectedAccountComponent,
     ReportComponent,
-    SettingComponent
+    SettingComponent,
+    LoginComponent,
+    GoogelSignDirective
   ],
   imports: [
     BrowserModule,
