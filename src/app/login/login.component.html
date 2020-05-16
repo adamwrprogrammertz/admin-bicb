@@ -1,1 +1,17 @@
-<p>login works!</p>
+<div style="text-align: center;">
+  <div *ngIf="!(afAuths.authState | async)" style="padding-top: 200px;">
+    <h1>Welcom To BICB Admin</h1>
+
+    <button mat-raised-button appGoogelSign> Login with Google</button>
+
+  </div>
+
+  <div *ngIf="afAuths.authState | async as user" class="logout" style="padding-top: 200px;">
+    <p>
+      Logged in as <strong>{{ user.email }}</strong>
+    </p>
+
+    <button mat-stroked-button (click)="afAuths.signOut()">Logout</button>
+
+  </div>
+</div>

@@ -1,3 +1,4 @@
-
+<mat-progress-bar mode="indeterminate" *ngIf="statusService.progressBarStatus"></mat-progress-bar>
 <app-toolbar></app-toolbar>
-<app-side></app-side>
+<app-side *ngIf="statusService.checkStatus === true"></app-side>
+<router-outlet *ngIf="statusService.checkStatus === false"></router-outlet>

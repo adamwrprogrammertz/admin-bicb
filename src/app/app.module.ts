@@ -19,6 +19,12 @@ import {  FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { GoogelSignDirective } from './googel-sign.directive';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +46,12 @@ import { GoogelSignDirective } from './googel-sign.directive';
     BrowserAnimationsModule,
     FlexLayoutModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule, // firestore
+    AngularFireAuthModule, // auth
+    AngularFireStorageModule // storage
 
   ],
   providers: [],

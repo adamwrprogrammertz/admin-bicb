@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { StatusCheckService } from '../status-check.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(public afAuths:AngularFireAuth,public statusServ:StatusCheckService){}
 
   ngOnInit(): void {
   }
 
+
+  logOut(){
+    
+    this.statusServ.progressBarStatus = true;
+    this.afAuths.signOut().then(()=>{
+      this.statusServ.checkStatus = false;
+      this.statusServ.progressBarStatus = false;
+
+    });
+  }
 }

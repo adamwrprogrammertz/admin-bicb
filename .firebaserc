@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "bicb-50c9c": {
+      "hosting": {
+        "bicb-admin": [
+          "bicb-50c9c"
+        ]
+      }
+    }
+  }
+}
