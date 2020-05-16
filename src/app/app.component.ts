@@ -10,7 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'bicb-admin';
+  title = 'bicb';
 
   constructor(public statusService:StatusCheckService,private afAuth:AngularFireAuth,private snackBar:MatSnackBar){
     afAuth.authState.subscribe(data=>{

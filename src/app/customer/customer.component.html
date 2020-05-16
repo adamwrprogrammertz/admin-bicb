@@ -102,6 +102,12 @@
 </div>
 
 <div *ngIf="layoutChoose === 'register' ">
+
+  <div style="text-align: center;">
+    <label for="file">Choose Customer Image</label>
+          <input type="file" (change)="uploadImg($event)" accept=".png,.jpg" />
+  </div>
+
   <form class="example-form">
 
     <mat-card style="background-color: whitesmoke;margin-bottom: 10px;">

@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class CustomerComponent implements OnInit {
 
   layoutChoose:"register"|"all"="all";
+  fileImg:File;
 
   constructor() { }
 
@@ -17,5 +18,9 @@ export class CustomerComponent implements OnInit {
   changeLayout(status){
     this.layoutChoose = status;
   }
+
+uploadImg(event){
+  this.fileImg = event.target.files[0];
+}
 
 }
