@@ -27,6 +27,7 @@ import { environment } from '../environments/environment';
 import { MatNativeDateModule } from '@angular/material/core';
 
 import { MatInputModule } from '@angular/material/input';
+import { AllPaymentComponent } from './payment/all-payment/all-payment.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { MatInputModule } from '@angular/material/input';
     SettingComponent,
     LoginComponent,
     GoogelSignDirective,
+    AllPaymentComponent,
   ],
   imports: [
     BrowserModule,
