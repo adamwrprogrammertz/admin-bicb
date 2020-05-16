@@ -14,6 +14,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatTableModule} from '@angular/material/table';
 
 const materialModules = [
   MatInputModule,
@@ -28,6 +29,7 @@ const materialModules = [
   MatSnackBarModule,
   MatTabsModule,
   MatDividerModule,
+  MatTableModule,
   MatDatepickerModule
 ]
 
