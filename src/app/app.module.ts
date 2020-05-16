@@ -41,7 +41,7 @@ import { MatInputModule } from '@angular/material/input';
     ReportComponent,
     SettingComponent,
     LoginComponent,
-    GoogelSignDirective
+    GoogelSignDirective,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +51,7 @@ import { MatInputModule } from '@angular/material/input';
     MaterialModule,
     FormsModule,
     MatInputModule,
-    
+
 
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule, // firestore

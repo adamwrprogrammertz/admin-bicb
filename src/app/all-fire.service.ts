@@ -22,10 +22,26 @@ export class AllFireService {
     });
   }
 
+  //Add to App Users
+  async addToAppUser() {
+    const user = await this.afAuth.currentUser;
+    this.db.collection('AppUsers').add({
+      status:"Activated",
+      adminName: user.displayName
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
+
 
   //Load all Customers
   getAllCustomerDetail(){
     return this.db.collection('CustomerDetails').snapshotChanges();
+  }
+
+  //Get App Status
+  getActivateStatus(){
+    return this.db.collection('AppUsers').snapshotChanges();
   }
 
 }

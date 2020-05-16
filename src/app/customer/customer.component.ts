@@ -79,6 +79,7 @@ onSubmit(){
         birth:this.customerBirth,
         maritalStatus:this.customerMarital,
         id_type:this.customerIdType,
+        id_number:this.customerIdNumber,
         spauseName:this.customerSpauseName === 'married'?this.customerSpauseName:"No Spause",
         residentAddress:this.customerResidentalAddress
 
