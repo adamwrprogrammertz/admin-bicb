@@ -16,7 +16,7 @@ export class AppComponent {
     afAuth.authState.subscribe(data=>{
       if(data != null){
         statusService.checkStatus = true;
-        this.snackBar.open("Welcom "+data.displayName,"",{duration:2000});
+        this.snackBar.open("Welcome "+data.displayName,"",{duration:2000});
       }else{
 
       }

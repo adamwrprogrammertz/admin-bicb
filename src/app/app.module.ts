@@ -25,6 +25,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 
+import { MatInputModule } from '@angular/material/input';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +49,8 @@ import { environment } from '../environments/environment';
     FlexLayoutModule,
     MaterialModule,
     FormsModule,
+    MatInputModule,
+    
 
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule, // firestore
