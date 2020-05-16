@@ -14,6 +14,8 @@ export class ToolbarComponent implements OnInit {
   nameFromGoogleAccount;
   imageUrlFromGoogleAccount;
 
+  value:any;
+
   constructor(private afAuth:AngularFireAuth,private router:Router,private serv:StatusCheckService) {
     afAuth.authState.subscribe(data=>{
       if(data != null){

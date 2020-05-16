@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-customer',
@@ -9,6 +9,19 @@ export class CustomerComponent implements OnInit {
 
   layoutChoose:"register"|"all"="all";
   fileImg:File;
+
+  customerName;
+  customerNature;
+  customerPhone;
+  customerGender;
+  customerBirth;
+  customerMarital;
+  customerIdType;
+  customerIdNumber;
+  customerSpauseName;
+  customerResidentalAddress;
+
+  @ViewChild('form') customerForm: any;
 
   constructor() { }
 
@@ -22,5 +35,12 @@ export class CustomerComponent implements OnInit {
 uploadImg(event){
   this.fileImg = event.target.files[0];
 }
+
+onSubmit(){
+  if(this.customerForm.valid){
+    this.customerForm.reset();
+  }
+}
+
 
 }
