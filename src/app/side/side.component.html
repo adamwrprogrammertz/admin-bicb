@@ -1,0 +1,67 @@
+
+
+<div fxFill style="padding: 10px;">
+
+  <div fxFlex='20'>
+
+    <div fxLayout="row" style="padding-bottom: 10px;cursor: pointer;"  (click)="changeLayoutDesign('home')"  >
+      <mat-icon>house</mat-icon>
+      <div style="margin-top:3px;margin-left: 3px;">Home</div>
+    </div>
+
+    <div fxLayout="row" style="padding-bottom: 10px;cursor: pointer;" (click)="changeLayoutDesign('payment')">
+      <mat-icon>attach_money</mat-icon>
+      <div style="margin-top:3px;margin-left: 3px;">Payments</div>
+    </div>
+
+    <div fxLayout="row" style="padding-bottom: 10px;cursor: pointer;" (click)="changeLayoutDesign('balance')">
+      <mat-icon>style</mat-icon>
+      <div style="margin-top:3px;margin-left: 3px;">Balance</div>
+    </div>
+
+    <div fxLayout="row" style="padding-bottom: 10px;cursor: pointer;" (click)="changeLayoutDesign('customer')">
+      <mat-icon>people_alt</mat-icon>
+      <div style="margin-top:3px;margin-left: 3px;">Customers</div>
+    </div>
+
+    <div fxLayout="row" style="padding-bottom: 10px;cursor: pointer;" (click)="changeLayoutDesign('connected_account')">
+      <mat-icon>done_all</mat-icon>
+      <div style="margin-top:3px;margin-left: 3px;">Connected Accounts</div>
+    </div>
+
+    <div fxLayout="row" style="padding-bottom: 10px;cursor: pointer;" (click)="changeLayoutDesign('reports')">
+      <mat-icon>bar_chart</mat-icon>
+      <div style="margin-top:3px;margin-left: 3px;">Reports</div>
+    </div>
+
+    <div fxLayout="row" style="padding-bottom: 10px;cursor: pointer;" (click)="changeLayoutDesign('setting')">
+      <mat-icon>settings</mat-icon>
+      <div style="margin-top:3px;margin-left: 3px;">Settings</div>
+    </div>
+  </div>
+
+  <div fxFlex='80' style="padding: 10px;">
+    <div *ngIf="switchLayoutType === 'home' ">
+      <app-home></app-home>
+    </div>
+    <div *ngIf="switchLayoutType === 'payment' ">
+      <app-payment></app-payment>
+    </div>
+    <div *ngIf="switchLayoutType === 'balance' ">
+      <app-balance></app-balance>
+    </div>
+    <div *ngIf="switchLayoutType === 'customer' ">
+      <app-customer></app-customer>
+    </div>
+    <div *ngIf="switchLayoutType === 'connected_account' ">
+      <app-connected-account></app-connected-account>
+    </div>
+    <div *ngIf="switchLayoutType === 'reports' ">
+      <app-report></app-report>
+    </div>
+    <div *ngIf="switchLayoutType === 'setting' ">
+      <app-setting></app-setting>
+    </div>
+  </div>
+
+</div>
