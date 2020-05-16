@@ -9,6 +9,10 @@ const routes: Routes = [
     path:'admin-login',component:LoginComponent
   },
 
+  {
+    path:'',component:AppComponent
+  }
+
 ];
 
 @NgModule({

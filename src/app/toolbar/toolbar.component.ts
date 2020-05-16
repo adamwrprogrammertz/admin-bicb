@@ -36,7 +36,7 @@ export class ToolbarComponent implements OnInit {
     this.afAuth.signOut().then(()=>{
       this.hideButton = false;
       this.serv.progressBarStatus = false;
-
+      this.router.navigateByUrl('/admin-login');
     });
 
   }
