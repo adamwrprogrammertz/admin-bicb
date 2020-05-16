@@ -9,12 +9,12 @@ import { StatusCheckService } from '../status-check.service';
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent implements OnInit {
-
+  value = "Search Here";
   hideButton;
   nameFromGoogleAccount;
   imageUrlFromGoogleAccount;
 
-  value:any;
+  
 
   constructor(private afAuth:AngularFireAuth,private router:Router,private serv:StatusCheckService) {
     afAuth.authState.subscribe(data=>{
