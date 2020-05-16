@@ -3,7 +3,7 @@
   <mat-list role="list">
 
     <mat-list-item role="listitem" style="margin-bottom: 40px;" *ngFor="let customerDetails of customerObjectFromFirebase">
-      <mat-card style="background-color: whitesmoke;width: 100%;">
+      <mat-card style="background-color: whitesmoke;width: 100%;padding: 10px;">
         <div fxLayout="row" fxLayoutAlign="space-between center">
           <div fxLayout="row">
             <img src={{customerDetails.payload.doc.data().customerImgFile}} style="border-radius: 50%;width: 50px;height: 50px;">
@@ -12,7 +12,7 @@
               <div style="font-weight: 100;font-size: small;">{{"Added By "+customerDetails.payload.doc.data().adminName}}</div>
             </div>
           </div>
-          <button mat-raised-button (click)="activateUser()">Activate</button>
+          <button mat-raised-button (click)="activateUser()" color="warn">{{buttonStatusValue === "Activated"? "Connected":"Activate"}}</button>
         </div>
       </mat-card>
     </mat-list-item>

@@ -13,7 +13,6 @@ export class ConnectedAccountComponent implements OnInit {
   customerObjectFromFirebase: any;
   buttonStatusValue:any;
 
-  buttonSettingStatus:"activated"|"no"="no";
 
   constructor(public serviceFb:AllFireService,
     private statuService:StatusCheckService,
@@ -26,7 +25,6 @@ export class ConnectedAccountComponent implements OnInit {
       if(datas != null){
         this.customerObjectFromFirebase = datas;
         this.statuService.progressBarStatus = false;
-      console.log(datas)
       }else{
         //No data
       }
@@ -34,7 +32,8 @@ export class ConnectedAccountComponent implements OnInit {
 
     this.serviceFb.getActivateStatus().subscribe(data=>{
       data.forEach(docValues=>{
-        console.log(docValues.payload.doc.data()["status"]);
+        this.buttonStatusValue = docValues.payload.doc.data()["status"];
+        console.log(this.buttonStatusValue);
       })
     });
   }
@@ -47,8 +46,5 @@ export class ConnectedAccountComponent implements OnInit {
     })
   }
 
-  setButtonTitle(value){
-    this.buttonSettingStatus = value;
-  }
 
 }
