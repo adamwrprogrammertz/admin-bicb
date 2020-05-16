@@ -39,3 +39,10 @@
     margin-right: 10px;
     cursor: pointer;
 }
+
+[toolBar]{
+    z-index: 5;
+    position: sticky;
+    top: 0;
+    background-color: #EDE7F6;
+}
