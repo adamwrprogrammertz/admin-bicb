@@ -33,6 +33,7 @@ import { CustomerPortfolioComponent } from './customer/customer-portfolio/custom
 import { SuccesedPaymentComponent } from './payment/succesed-payment/succesed-payment.component';
 
 import { MatListModule } from '@angular/material/list';
+import { SummaryPaymentComponent } from './payment/summary-payment/summary-payment.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { MatListModule } from '@angular/material/list';
     MomentPipe,
     CustomerPortfolioComponent,
     SuccesedPaymentComponent,
+    SummaryPaymentComponent,
   ],
   imports: [
     BrowserModule,

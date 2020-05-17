@@ -1,0 +1,68 @@
+
+.containerCard{
+  width: 98%;
+}
+.image_container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.c_image{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+.CustomerName{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+[seg]{
+  width: 50%;
+  float: left;
+}
+.card{
+  height: 200px;
+  margin: 10px 0 10px 0;
+  border-radius: 10px;
+  width: 30%;
+  font-family: 'Ubuntu',
+  sans-serif;
+}
+.installments{
+  display: flex;
+  justify-content: space-around;
+}
+.debit{
+  background: rgb(255, 219, 219);
+}
+.debit > .header{
+  color: rgb(109, 0, 0);
+}
+
+.credit{
+  background: rgb(215, 255, 205);
+
+}
+.credit > .header{
+  color: rgb(0, 63, 0);
+}
+
+.nextdate {
+  background: rgb(203, 199, 255);
+}
+.nextdate > .header {
+  color: rgb(0, 0, 56);
+}
+
+.header{
+  margin: 10px 0 10px 20px;
+  font-weight: bold;
+}
+.inCard{
+  font-size: 2.5vw;
+  margin-top: 50px;
+  text-align: center;
+}
+
