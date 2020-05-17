@@ -25,11 +25,7 @@ export class PaymentComponent implements OnInit {
         break;
 
         case 2:
-          this.loadDataRefunded();
-          break;
-
-        case 3:
-          this.loadDataUncaptured();
+          this.loadSummary();
           break;
 
         default:
@@ -45,12 +41,9 @@ export class PaymentComponent implements OnInit {
 
   }
 
-  loadDataRefunded(){
+  loadSummary(){
 
   }
 
-  loadDataUncaptured(){
-
-  }
 
 }
