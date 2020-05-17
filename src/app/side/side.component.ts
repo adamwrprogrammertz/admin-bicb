@@ -22,6 +22,6 @@ export class SideComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
+
 
 }

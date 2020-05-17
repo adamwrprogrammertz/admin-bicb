@@ -17,12 +17,15 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatTreeModule} from '@angular/material/tree';
 
 const materialModules = [
+
   MatInputModule,
   MatCardModule,
   MatIconModule,
   MatMenuModule,
+  MatTreeModule,
   MatButtonModule,
   MatChipsModule,
   MatFormFieldModule,
@@ -35,6 +38,7 @@ const materialModules = [
   MatDividerModule,
   MatTableModule,
   MatDatepickerModule
+
 ]
 
 @NgModule({
