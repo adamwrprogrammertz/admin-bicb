@@ -5,7 +5,7 @@ export interface CustomerModel{
   nature:string;
   phone:string;
   gender:string;
-  birth:string;
+  birth:string; 
   maritalStatus:string;
   id_type:string;
   id_number:string;

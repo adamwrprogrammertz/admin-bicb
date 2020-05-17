@@ -17,7 +17,7 @@
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
-    font-size: 20px;
+    font-size: 3vw;
 }
 [seg]{
     width: 50%;
@@ -87,4 +87,7 @@ table {
     border-bottom: none;
     border-left: none;
     border-color: rgb(192, 192, 192);
+}
+mat-list-icon {
+    color: grey;
 }

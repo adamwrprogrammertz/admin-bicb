@@ -2,7 +2,7 @@
 <div fxLayout="column" fxLayoutAlign="space-between center">
 
   <div fxLayout="column" fxLayoutAlign="space-between center" >
-    <img src={{allDataService.customerData.customerImgFile}} style="border-radius: 50%;width: 80px;height: 80px;">
+    <img src={{allDataService.customerData.customerImgFile}} class="c_image">
     <div class="CustomerName">{{allDataService.customerData.name}}</div>
   </div>
 </div>
@@ -20,13 +20,13 @@
       <mat-list-item>
         <mat-icon mat-list-icon>loop</mat-icon>
         <div mat-line>Client Type</div>
-        <div mat-line>Reccuring</div>
+        <div mat-line>{{allDataService.customerData.nature}}</div>
       </mat-list-item>
 
       <mat-list-item>
         <mat-icon mat-list-icon>call</mat-icon>
         <div mat-line>Contacts</div>
-        <div mat-line>+255 XXX XXX XXX</div>
+        <div mat-line>{{allDataService.customerData.phone}}</div>
         <button mat-icon-button mat-button>
           <mat-icon>edit</mat-icon>
         </button>
@@ -35,7 +35,7 @@
        <mat-list-item>
         <mat-icon mat-list-icon>location_on</mat-icon>
         <div mat-line>Address</div>
-        <div mat-line>Uyole</div>
+        <div mat-line>{{allDataService.customerData.residentAddress}}</div>
         <button mat-icon-button  mat-button>
           <mat-icon>edit</mat-icon>
         </button>
@@ -43,41 +43,63 @@
       
     </mat-list>
    
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel 
+      (opened)="panelOpenState = true" 
+      (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
           <mat-panel-title>
             {{allDataService.customerData.name}}
           </mat-panel-title>
           <mat-panel-description>
-            More About Client
+            {{panelOpenState ? 'Less' : 'More'}} About Client
           </mat-panel-description>
         </mat-expansion-panel-header>
         <mat-list>
           <mat-list-item>
-            <mat-icon mat-list-icon>perm_identity</mat-icon>
-            <div mat-line>Client Number</div>
-            <div mat-line>000021</div>
+            <svg mat-list-icon xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48"
+              viewBox="0 0 172 172"
+              style=" fill:#000000;">
+              <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                style="mix-blend-mode: normal">
+                <path d="M0,172v-172h172v172z" fill="none"></path>
+                <g fill="#808080">
+                  <path
+                    d="M125.41667,7.16667h-35.83333v14.33333h26.15833l-24.36667,24.36667c-13.975,-9.31667 -32.96667,-7.525 -45.15,4.65833c-13.975,13.975 -13.975,36.55 0,50.525c5.01667,5.01667 11.46667,8.24167 18.275,9.675v18.275h-21.5v14.33333h21.5v21.5h14.33333v-21.5h21.5v-14.33333h-21.5v-18.275c6.80833,-1.43333 12.9,-4.65833 18.275,-9.675c12.18333,-12.18333 13.61667,-31.175 4.65833,-45.15l23.65,-23.65v25.08333h14.33333v-35.83333v-14.33333zM86.71667,90.65833c-8.24167,8.24167 -21.85833,8.24167 -30.1,0c-8.24167,-8.24167 -8.24167,-21.85833 0,-30.1c8.24167,-8.24167 21.85833,-8.24167 30.1,0c8.24167,8.24167 8.24167,21.85833 0,30.1z">
+                  </path>
+                </g>
+              </g>
+            </svg>
+            <div mat-line>Gender</div>
+            <div mat-line>{{allDataService.customerData.gender}}</div>
           </mat-list-item>
 
           <mat-list-item>
-            <mat-icon mat-list-icon>loop</mat-icon>
-            <div mat-line>Client Type</div>
-            <div mat-line>Reccuring</div>
+            <mat-icon mat-list-icon>cake</mat-icon>
+            <div mat-line>Birthday</div>
+            <div mat-line>{{allDataService.customerData.birth}}</div>
+          </mat-list-item>
+          
+          <mat-list-item>
+            <mat-icon mat-list-icon>favorite</mat-icon>
+            <div mat-line>Marital status</div>
+            <div mat-line>{{allDataService.customerData.maritalStatus}}</div>
           </mat-list-item>
 
           <mat-list-item>
-            <mat-icon mat-list-icon>call</mat-icon>
-            <div mat-line>Contacts</div>
-            <div mat-line>+255 XXX XXX XXX</div>
+            <mat-icon mat-list-icon>card_membership</mat-icon>
+            <div mat-line>ID Type</div>
+            <div mat-line>{{allDataService.customerData.id_type}}</div>
             <button mat-icon-button mat-button>
               <mat-icon>edit</mat-icon>
             </button>
           </mat-list-item>
 
           <mat-list-item>
-            <mat-icon mat-list-icon>location_on</mat-icon>
-            <div mat-line>Address</div>
-            <div mat-line>Uyole</div>
+            <mat-icon mat-list-icon>fingerprint</mat-icon>
+            <div mat-line>ID Number</div>
+            <div mat-line>{{allDataService.customerData.id_number}}</div>
             <button mat-icon-button mat-button>
               <mat-icon>edit</mat-icon>
             </button>
