@@ -5,17 +5,46 @@
     <img src={{allDataService.customerData.customerImgFile}} style="border-radius: 50%;width: 80px;height: 80px;">
     <div class="CustomerName">{{allDataService.customerData.name}}</div>
   </div>
-
-
-  <!-- <div style="font-weight:100;margin-top: 10px;margin-bottom: 10px;">Manage all Customer Infos Here</div> -->
 </div>
 
+<mat-card class=" containerCard detailsContainer">
+<div class="details personal">
+    <div mat-subheader>Personal Details</div>
+    <mat-list>
+      <mat-list-item>
+        <mat-icon mat-list-icon>perm_identity</mat-icon>
+        <div mat-line>Client Number</div>
+        <div mat-line>000021</div>
+      </mat-list-item>
 
-<mat-card class=containerCard>
-  
-  
+      <mat-list-item>
+        <mat-icon mat-list-icon>loop</mat-icon>
+        <div mat-line>Client Type</div>
+        <div mat-line>Reccuring</div>
+      </mat-list-item>
 
-  <div class="Loan Details">
+      <mat-list-item>
+        <mat-icon mat-list-icon>call</mat-icon>
+        <div mat-line>Contacts</div>
+        <div mat-line>+255 XXX XXX XXX</div>
+        <button mat-button>
+          <mat-icon>edit</mat-icon>
+        </button>
+      </mat-list-item>
+
+       <mat-list-item>
+        <mat-icon mat-list-icon>location_on</mat-icon>
+        <div mat-line>Address</div>
+        <div mat-line>Uyole</div>
+        <button mat-button>
+          <mat-icon>edit</mat-icon>
+        </button>
+      </mat-list-item>
+
+    </mat-list>
+</div>
+
+<div class="details">
     <div mat-subheader>Loan Details</div>
     <mat-list>
       <mat-list-item>
@@ -28,30 +57,33 @@
         <mat-icon mat-list-icon>stars</mat-icon>
         <div mat-line>Interest Rate</div>
         <div mat-line>20%</div>
+        <button mat-button>
+          <mat-icon>edit</mat-icon>
+        </button>
+        
       </mat-list-item>
 
       <mat-list-item>
         <mat-icon mat-list-icon>calendar_today</mat-icon>
         <div mat-line>Tenure</div>
         <div mat-line>8 Weeks</div>
-        <mat-icon>refresh</mat-icon>
+        <button mat-button>
+          <mat-icon>edit</mat-icon>
+        </button>
       </mat-list-item>
 
        <mat-list-item>
         <mat-icon mat-list-icon>date_range</mat-icon>
         <div mat-line>Weekly Instalment</div>
-        <div mat-line>Monthly</div>
-        <mat-icon>refresh</mat-icon>
+        <div mat-line>30,000/- TZS</div>
+        <button mat-button>
+          <mat-icon>edit</mat-icon>
+        </button>
       </mat-list-item>
 
     </mat-list>
-
-
-  </div>
-
-
+</div>
 </mat-card>
-
 
 
 <mat-card class="containerCard installments">
@@ -69,35 +101,34 @@
   </div>
 </mat-card>
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<mat-card class="containerCard">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
 
-  <!-- Position Column -->
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-  </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+    </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="date">
-    <th mat-header-cell *matHeaderCellDef> Date </th>
-    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
-  </ng-container>
+    <!-- Weight Column -->
+    <ng-container matColumnDef="debit">
+      <th mat-header-cell *matHeaderCellDef> Debit </th>
+      <td mat-cell *matCellDef="let element"> {{element.debit}} </td>
+    </ng-container>
 
-  <!-- Weight Column -->
-  <ng-container matColumnDef="debit">
-    <th mat-header-cell *matHeaderCellDef> Debit </th>
-    <td mat-cell *matCellDef="let element"> {{element.debit}} </td>
-  </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="credit">
+      <th mat-header-cell *matHeaderCellDef> Credit </th>
+      <td mat-cell *matCellDef="let element"> {{element.credit}} </td>
+    </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="credit">
-    <th mat-header-cell *matHeaderCellDef> Credit </th>
-    <td mat-cell *matCellDef="let element"> {{element.credit}} </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</mat-card>
