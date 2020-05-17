@@ -29,7 +29,6 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { AllPaymentComponent } from './payment/all-payment/all-payment.component';
 import { MomentPipe } from './moment.pipe';
-import { MatTreeModule } from '@angular/material/tree';
 import { CustomerPortfolioComponent } from './customer/customer-portfolio/customer-portfolio.component';
 
 @NgModule({
@@ -58,7 +57,6 @@ import { CustomerPortfolioComponent } from './customer/customer-portfolio/custom
     MaterialModule,
     FormsModule,
     MatInputModule,
-    MatTreeModule,
 
 
     AngularFireModule.initializeApp(environment.firebaseConfig),

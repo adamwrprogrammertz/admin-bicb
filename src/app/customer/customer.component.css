@@ -1,9 +1,20 @@
 
-
-.example-form {
+.form {
   width: 100%;
 }
 
-.example-full-width {
+.formFieldContent {
   width: 100%;
+}
+[inPutCard]{
+  background-color: whitesmoke;
+  width: 98%;
+  margin: 10px 0 10px 0;
+
+}
+.fileInput {
+  height: 30px;
+  color: white;
+  border-color:blue;
+  background-color: green;
 }
