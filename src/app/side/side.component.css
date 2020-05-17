@@ -5,15 +5,20 @@ margin-top: 10px;
 transition: 0.7s;
 padding-bottom: 10px;
 cursor: pointer;
-padding: 10px;
-color: rgb(70, 70, 70);
+padding: 3px;
+color: grey;
 
 }
 
-[dashOpt]:hover {
-  background-color: lightgrey;
+[dashOpt]:hover > mat-icon {
+  /* background-color: lightgrey; */
+  color: black;
 transition: 0.7s;
 
+}
+.opts{
+  margin-top:3px;
+  margin-left: 10px;
 }
 [sideNav]{
   position: fixed;

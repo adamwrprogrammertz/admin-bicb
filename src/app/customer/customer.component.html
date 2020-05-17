@@ -3,7 +3,7 @@
   <mat-list role="list">
 
     <mat-list-item role="listitem" style="margin-bottom: 40px;" *ngFor="let customerDetails of customerObjectFromFirebase">
-      <mat-card style="background-color: whitesmoke;width: 100%;">
+      <mat-card inPutCard >
         <div fxLayout="row" fxLayoutAlign="space-between center">
           <div fxLayout="row">
 
@@ -26,30 +26,30 @@
 
 <div *ngIf="layoutChoose === 'register' ">
 
-  <div style="text-align: center;">
+  <mat-card inPutCard>
     <label for="file">Choose Customer Image</label>
-    <input type="file" (change)="uploadImg($event)" accept=".png,.jpg" />
-  </div>
+    <input class="fileInput" type="file" (change)="uploadImg($event)" accept=".png,.jpg" />
+  </mat-card>
 
-  <form class="example-form" #form="ngForm" (ngSubmit)="onSubmit()">
+  <form class="form" #form="ngForm" (ngSubmit)="onSubmit()">
 
-    <mat-card style="background-color: whitesmoke;margin-bottom: 10px;">
-      <mat-form-field class="example-full-width ">
+    <mat-card inPutCard >
+      <mat-form-field class="formFieldContent ">
         <mat-label>Customer Name</mat-label>
         <input matInput required name= "customer_name" [(ngModel)]="customerName" placeholder="Customer Name">
       </mat-form-field>
     </mat-card>
 
 
-    <mat-card style="background-color: whitesmoke;margin-bottom: 10px;">
-      <mat-form-field class="example-full-width ">
+    <mat-card inPutCard >
+      <mat-form-field class="formFieldContent ">
         <mat-label>Nature Of Customer</mat-label>
         <input matInput placeholder="Nature Of Customer" name= "customer_nature" required [(ngModel)]="customerNature">
       </mat-form-field>
     </mat-card>
 
-    <mat-card style="background-color: whitesmoke;margin-bottom: 10px;">
-      <mat-form-field class="example-full-width">
+    <mat-card inPutCard >
+      <mat-form-field class="formFieldContent">
         <mat-label>Telephone</mat-label>
         <span matPrefix>+255 &nbsp;</span>
         <input type="tel" matInput placeholder="XXX-000-000" required name= "customer_tel" [(ngModel)]="customerPhone">
@@ -58,8 +58,8 @@
     </mat-card>
 
 
-    <mat-card style="background-color: whitesmoke;margin-bottom: 10px;">
-      <mat-form-field class="example-full-width ">
+    <mat-card inPutCard >
+      <mat-form-field class="formFieldContent ">
         <mat-label>Gender</mat-label>
         <select matNativeControl required [(ngModel)]="customerGender" name= "customer_gender">
           <option value="male">Male</option>
@@ -68,8 +68,8 @@
       </mat-form-field>
     </mat-card>
 
-    <mat-card style="background-color: whitesmoke;margin-bottom: 10px;">
-      <mat-form-field class="example-full-width ">
+    <mat-card inPutCard >
+      <mat-form-field class="formFieldContent ">
         <mat-label>Date of Birth</mat-label>
         <input matInput [matDatepicker]="picker" required [(ngModel)]="customerBirth" name= "customer_birth">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -77,8 +77,8 @@
       </mat-form-field>
     </mat-card>
 
-    <mat-card style="background-color: whitesmoke;margin-bottom: 10px;">
-      <mat-form-field class="example-full-width ">
+    <mat-card inPutCard >
+      <mat-form-field class="formFieldContent ">
         <mat-label>Marital Status</mat-label>
         <select matNativeControl required [(ngModel)]="customerMarital" name= "customer_marital_status">
           <option value="married">Married</option>
@@ -88,8 +88,8 @@
       </mat-form-field>
     </mat-card>
 
-    <mat-card style="background-color: whitesmoke;margin-bottom: 10px;">
-      <mat-form-field class="example-full-width ">
+    <mat-card inPutCard >
+      <mat-form-field class="formFieldContent ">
         <mat-label>Id Type</mat-label>
         <select matNativeControl required [(ngModel)]="customerIdType" name= "customer_id_type">
           <option value="National_Id">National Id</option>
@@ -100,22 +100,22 @@
       </mat-form-field>
     </mat-card>
 
-    <mat-card style="background-color: whitesmoke;margin-bottom: 10px;">
-      <mat-form-field class="example-full-width ">
+    <mat-card inPutCard >
+      <mat-form-field class="formFieldContent ">
         <mat-label>Id Number</mat-label>
         <input matInput placeholder="Id Number" required [(ngModel)]="customerIdNumber" name= "customer_id_number">
       </mat-form-field>
     </mat-card>
 
-    <mat-card style="background-color: whitesmoke;margin-bottom: 10px;">
-      <mat-form-field class="example-full-width ">
+    <mat-card inPutCard >
+      <mat-form-field class="formFieldContent ">
         <mat-label>Spause Name</mat-label>
         <input matInput placeholder="Spause Name" [required]="customerMarital === 'married' " [(ngModel)]="customerSpauseName" name= "customer_spause_name">
       </mat-form-field>
     </mat-card>
 
-    <mat-card style="background-color: whitesmoke;margin-bottom: 10px;">
-      <mat-form-field class="example-full-width ">
+    <mat-card inPutCard >
+      <mat-form-field class="formFieldContent ">
         <mat-label>Residental Address</mat-label>
         <input matInput placeholder="Residental Address" required [(ngModel)]="customerResidentalAddress" name= "customer_address">
       </mat-form-field>
