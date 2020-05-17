@@ -23,6 +23,10 @@ const ELEMENT_DATA: Repayments[] = [
 export class CustomerPortfolioComponent implements OnInit {
   displayedColumns: string[] = ['position', 'date', 'debit', 'credit'];
   dataSource = ELEMENT_DATA;
+
+  panelOpenState = false;  
+
+
   constructor(public allDataService:ServiceModelService) { }
 
   ngOnInit(): void {

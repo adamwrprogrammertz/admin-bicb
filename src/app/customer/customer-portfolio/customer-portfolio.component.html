@@ -41,8 +41,51 @@
         </button>
       </mat-list-item>
       
-
     </mat-list>
+   
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{allDataService.customerData.name}}
+          </mat-panel-title>
+          <mat-panel-description>
+            More About Client
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-list>
+          <mat-list-item>
+            <mat-icon mat-list-icon>perm_identity</mat-icon>
+            <div mat-line>Client Number</div>
+            <div mat-line>000021</div>
+          </mat-list-item>
+
+          <mat-list-item>
+            <mat-icon mat-list-icon>loop</mat-icon>
+            <div mat-line>Client Type</div>
+            <div mat-line>Reccuring</div>
+          </mat-list-item>
+
+          <mat-list-item>
+            <mat-icon mat-list-icon>call</mat-icon>
+            <div mat-line>Contacts</div>
+            <div mat-line>+255 XXX XXX XXX</div>
+            <button mat-icon-button mat-button>
+              <mat-icon>edit</mat-icon>
+            </button>
+          </mat-list-item>
+
+          <mat-list-item>
+            <mat-icon mat-list-icon>location_on</mat-icon>
+            <div mat-line>Address</div>
+            <div mat-line>Uyole</div>
+            <button mat-icon-button mat-button>
+              <mat-icon>edit</mat-icon>
+            </button>
+          </mat-list-item>
+
+        </mat-list>
+      </mat-expansion-panel>
+  
 </div>
 
 <div class="details">
