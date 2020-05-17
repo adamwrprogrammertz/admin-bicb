@@ -30,6 +30,7 @@ import { MatInputModule } from '@angular/material/input';
 import { AllPaymentComponent } from './payment/all-payment/all-payment.component';
 import { MomentPipe } from './moment.pipe';
 import { CustomerPortfolioComponent } from './customer/customer-portfolio/customer-portfolio.component';
+import { SuccesedPaymentComponent } from './payment/succesed-payment/succesed-payment.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { CustomerPortfolioComponent } from './customer/customer-portfolio/custom
     AllPaymentComponent,
     MomentPipe,
     CustomerPortfolioComponent,
+    SuccesedPaymentComponent,
   ],
   imports: [
     BrowserModule,
