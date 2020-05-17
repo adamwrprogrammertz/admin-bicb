@@ -28,6 +28,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 
 import { MatInputModule } from '@angular/material/input';
 import { AllPaymentComponent } from './payment/all-payment/all-payment.component';
+import { MomentPipe } from './moment.pipe';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { AllPaymentComponent } from './payment/all-payment/all-payment.component
     LoginComponent,
     GoogelSignDirective,
     AllPaymentComponent,
+    MomentPipe,
   ],
   imports: [
     BrowserModule,
