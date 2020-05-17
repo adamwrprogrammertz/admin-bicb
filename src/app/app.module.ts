@@ -30,6 +30,7 @@ import { MatInputModule } from '@angular/material/input';
 import { AllPaymentComponent } from './payment/all-payment/all-payment.component';
 import { MomentPipe } from './moment.pipe';
 import { CustomerPortfolioComponent } from './customer/customer-portfolio/customer-portfolio.component';
+import { SuccesedPaymentComponent } from './payment/succesed-payment/succesed-payment.component';
 
 import { MatListModule } from '@angular/material/list';
 
@@ -50,6 +51,7 @@ import { MatListModule } from '@angular/material/list';
     AllPaymentComponent,
     MomentPipe,
     CustomerPortfolioComponent,
+    SuccesedPaymentComponent,
   ],
   imports: [
     BrowserModule,

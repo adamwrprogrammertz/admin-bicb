@@ -12,4 +12,45 @@ export class PaymentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  tabChanged(event){
+    switch(event.index){
+      case 0:
+        this.loadDataAll()
+        console.log(event.index)
+        break;
+
+      case 1:
+        this.loadDataSuccess()
+        console.log(event.index)
+        break;
+
+        case 2:
+          this.loadDataRefunded();
+          break;
+
+        case 3:
+          this.loadDataUncaptured();
+          break;
+
+        default:
+          return null;
+    }
+  }
+
+  loadDataAll(){
+
+  }
+
+  loadDataSuccess(){
+
+  }
+
+  loadDataRefunded(){
+
+  }
+
+  loadDataUncaptured(){
+
+  }
+
 }
