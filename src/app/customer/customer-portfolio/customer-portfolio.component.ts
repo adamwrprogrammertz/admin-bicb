@@ -3,6 +3,7 @@ export interface Section {
   name: string;
   updated: Date;
 }
+import { ServiceModelService } from '../../all-data-service/service-model.service';
 
 @Component({
   selector: 'app-customer-portfolio',
@@ -35,9 +36,11 @@ export class CustomerPortfolioComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(public allDataService:ServiceModelService) { }
 
   ngOnInit(): void {
   }
+
+
 
 }
