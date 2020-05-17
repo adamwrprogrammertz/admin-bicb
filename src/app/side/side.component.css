@@ -27,3 +27,7 @@ transition: 0.7s;
   width: 98%;
   padding: 1%;
 }
+mat-tree{
+  background-color: transparent;
+  width: 100%;
+}
