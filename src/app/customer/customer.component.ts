@@ -16,7 +16,7 @@ export class CustomerComponent implements OnInit {
 
   customerObjectFromFirebase:any;
 
-  layoutChoose:"register"|"all"="all";
+  layoutChoose:"register"|"all"|"portifolio"="all";
   fileImg:File;
 
   customerName;

@@ -2,7 +2,7 @@
 <div *ngIf="layoutChoose === 'all' ">
   <mat-list role="list">
 
-    <mat-list-item role="listitem" style="margin-bottom: 40px;" *ngFor="let customerDetails of customerObjectFromFirebase">
+    <mat-list-item role="listitem" style="margin-bottom: 40px;cursor: pointer;" *ngFor="let customerDetails of customerObjectFromFirebase" (click)="changeLayout('portifolio')">
       <mat-card inPutCard >
         <div fxLayout="row" fxLayoutAlign="space-between center">
           <div fxLayout="row">
@@ -22,6 +22,10 @@
     </mat-list-item>
 
   </mat-list>
+</div>
+
+<div *ngIf="layoutChoose === 'portifolio' ">
+  <app-customer-portfolio></app-customer-portfolio>
 </div>
 
 <div *ngIf="layoutChoose === 'register' ">
