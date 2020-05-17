@@ -11,3 +11,19 @@ padding: 10px;
 transition: 0.7s;
 
 }
+[sideNav]{
+  position: fixed;
+  float: left;
+  max-width: 20%;
+  min-width: 20%;
+}
+[contentView]{
+  float: right;
+  max-width: 77%;
+  min-width: 77%;
+  padding: 1%;
+}
+[container]{
+  width: 98%;
+  padding: 1%;
+}

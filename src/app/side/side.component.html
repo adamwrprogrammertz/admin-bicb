@@ -1,8 +1,8 @@
 
 
-<div fxFill style="padding: 10px;">
+<div container >
 
-  <div fxFlex='20'>
+  <div sideNav>
 
     <div dashOpt fxLayout="row"  (click)="changeLayoutDesign('home')"  >
       <mat-icon>home</mat-icon>
@@ -41,7 +41,7 @@
     </div>
   </div>
 
-  <div fxFlex='80' style="padding: 10px;">
+  <div contentView>
     <div *ngIf="switchLayoutType === 'home' ">
       <app-home></app-home>
     </div>
