@@ -63,7 +63,7 @@
 }
 .inCard{
     font-size: 2.5vw;
-    margin-top: 50px;
+    margin-top: 60px;
     text-align: center;
 }
 
@@ -76,7 +76,8 @@ table {
     justify-content: space-around;
 }
 .details{
-    width: 50%;
+    width: 46%;
+    padding: 0 2% 0 2%;
     margin: 20px 0 20px 0;
 }
 .personal{
