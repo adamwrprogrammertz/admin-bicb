@@ -31,6 +31,8 @@ import { AllPaymentComponent } from './payment/all-payment/all-payment.component
 import { MomentPipe } from './moment.pipe';
 import { CustomerPortfolioComponent } from './customer/customer-portfolio/customer-portfolio.component';
 
+import { MatListModule } from '@angular/material/list';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +59,7 @@ import { CustomerPortfolioComponent } from './customer/customer-portfolio/custom
     MaterialModule,
     FormsModule,
     MatInputModule,
-
+    MatListModule,
 
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule, // firestore

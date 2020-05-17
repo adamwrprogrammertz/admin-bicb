@@ -1,3 +1,28 @@
+/* {
+  font-family: 'Ubuntu',
+  sans-serif;
+
+} */
 .containerCard{
-    width: 90%;
+    width: 98%;
+}
+.image_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.c_image{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+.CustomerName{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+[seg]{
+    width: 50%;
+    float: left;
 }
