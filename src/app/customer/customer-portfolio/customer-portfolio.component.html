@@ -1,22 +1,19 @@
 
 <div fxLayout="column" fxLayoutAlign="space-between center">
-<div mat-subheader>Personal Details</div>
+
   <div fxLayout="column" fxLayoutAlign="space-between center" >
     <img src={{allDataService.customerData.customerImgFile}} style="border-radius: 50%;width: 80px;height: 80px;">
-    <div style="font-size: medium;">{{allDataService.customerData.name}}</div>
+    <div class="CustomerName">{{allDataService.customerData.name}}</div>
   </div>
 
 
-  <div style="font-weight:100;margin-top: 10px;margin-bottom: 10px;">Manage all Customer Infos Here</div>
+  <!-- <div style="font-weight:100;margin-top: 10px;margin-bottom: 10px;">Manage all Customer Infos Here</div> -->
 </div>
-
-
-
 
 
 <mat-card class=containerCard>
   
-  <mat-divider></mat-divider>
+  
 
   <div class="Loan Details">
     <div mat-subheader>Loan Details</div>
@@ -25,12 +22,6 @@
         <mat-icon mat-list-icon>calendar_view_day</mat-icon>
         <div mat-line>Disbursement Date</div>
         <div mat-line>3/6/2020</div>
-      </mat-list-item>
-
-    <mat-list-item>
-        <mat-icon mat-list-icon>payment</mat-icon>
-        <div mat-line>Loan Amount</div>
-        <div mat-line>100,000 TZS</div>
       </mat-list-item>
 
       <mat-list-item>
@@ -42,7 +33,7 @@
       <mat-list-item>
         <mat-icon mat-list-icon>calendar_today</mat-icon>
         <div mat-line>Tenure</div>
-        <div mat-line>Monthly</div>
+        <div mat-line>8 Weeks</div>
         <mat-icon>refresh</mat-icon>
       </mat-list-item>
 
@@ -61,8 +52,20 @@
 
 </mat-card>
 
-<mat-card></mat-card>
-<mat-card class="repayments">
 
+
+<mat-card class="containerCard installments">
+  <div class="card debit">
+  <div class="header">Loan Amount</div>
+    <div class="inCard" style="color: rgb(255, 122, 122);">100,000/- TZS</div>
+  </div>
+  <div class="card credit">
+  <div class="header">next Date</div>
+    <div class="inCard" style="color: rgb(137, 255, 108);">20/6/2020</div>
+  </div>
+  <div class="card nextdate">
+  <div class="header">Remaining Amount</div>
+<div class="inCard" style="color: rgb(118, 108, 255);">68,000/- TZS</div>
+  </div>
 </mat-card>
 
