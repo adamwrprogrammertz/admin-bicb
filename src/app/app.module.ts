@@ -28,6 +28,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 
 import { MatInputModule } from '@angular/material/input';
 import { AllPaymentComponent } from './payment/all-payment/all-payment.component';
+import { MatTreeModule } from '@angular/material/tree';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { AllPaymentComponent } from './payment/all-payment/all-payment.component
     MaterialModule,
     FormsModule,
     MatInputModule,
+    MatTreeModule,
 
 
     AngularFireModule.initializeApp(environment.firebaseConfig),
