@@ -1,9 +1,15 @@
+* {
+  font-family: 'Ubuntu', sans-serif;
+}
+
 [dashOpt] {
 margin-top: 10px;
 transition: 0.7s;
 padding-bottom: 10px;
 cursor: pointer;
 padding: 10px;
+color: rgb(70, 70, 70);
+
 }
 
 [dashOpt]:hover {

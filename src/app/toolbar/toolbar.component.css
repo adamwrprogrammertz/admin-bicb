@@ -1,3 +1,6 @@
+* {
+  font-family: 'Ubuntu', sans-serif;
+}
 .searchBoxContainer{
     width: 35vw;
     border: none;
