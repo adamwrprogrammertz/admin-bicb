@@ -1,8 +1,25 @@
 
-<div *ngIf="layoutChoose === 'all' ">
+<div *ngIf="layoutChoose === 'all'">
   <mat-list role="list">
 
-    <mat-list-item role="listitem" style="margin-bottom: 40px;cursor: pointer;" *ngFor="let customerDetails of customerObjectFromFirebase" (click)="changeLayout('portifolio')">
+    <mat-list-item role="listitem" style="margin-bottom: 40px;cursor: pointer;"
+     *ngFor="let customerDetails of customerObjectFromFirebase"
+     (click)="changeAndPassCustomerData(
+
+     {
+      customerImgFile:customerDetails.payload.doc.data().customerImgFile,
+      name:customerDetails.payload.doc.data().name,
+      nature:customerDetails.payload.doc.data().nature,
+      phone:customerDetails.payload.doc.data().phone,
+      gender:customerDetails.payload.doc.data().gender,
+      birth:customerDetails.payload.doc.data().birth,
+      maritalStatus:customerDetails.payload.doc.data().maritalStatus,
+      id_type:customerDetails.payload.doc.data().id_type,
+      id_number:customerDetails.payload.doc.data().id_number,
+      spauseName:customerDetails.payload.doc.data().spauseName,
+      residentAddress:customerDetails.payload.doc.data().residentAddress}
+
+      )">
       <mat-card inPutCard >
         <div fxLayout="row" fxLayoutAlign="space-between center">
           <div fxLayout="row">
@@ -25,6 +42,7 @@
 </div>
 
 <div *ngIf="layoutChoose === 'portifolio' ">
+  <mat-icon (click)="changeLayout('all')" style="cursor: pointer;">keyboard_backspace</mat-icon>
   <app-customer-portfolio></app-customer-portfolio>
 </div>
 

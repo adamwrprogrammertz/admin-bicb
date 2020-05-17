@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceModelService } from '../../all-data-service/service-model.service';
 
 @Component({
   selector: 'app-customer-portfolio',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerPortfolioComponent implements OnInit {
 
-  constructor() { }
+  constructor(public allDataService:ServiceModelService) { }
 
   ngOnInit(): void {
   }
+
+
 
 }

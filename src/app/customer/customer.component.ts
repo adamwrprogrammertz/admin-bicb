@@ -6,6 +6,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { StatusCheckService } from '../status-check.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { CustomerModel } from './customer.model';
+import { ServiceModelService } from '../all-data-service/service-model.service';
 
 @Component({
   selector: 'app-customer',
@@ -34,6 +36,7 @@ export class CustomerComponent implements OnInit {
   imgCustomerUrl: any;
 
   constructor(public serviceFb:AllFireService,
+    private allDataService:ServiceModelService,
     private statuService:StatusCheckService,
     private afAuth:AngularFireAuth,
     private db: AngularFirestore,
@@ -46,7 +49,6 @@ export class CustomerComponent implements OnInit {
       if(datas != null){
         this.customerObjectFromFirebase = datas;
         this.statuService.progressBarStatus = false;
-      console.log(datas)
       }else{
         //No data
       }
@@ -57,6 +59,14 @@ export class CustomerComponent implements OnInit {
   changeLayout(status){
     this.layoutChoose = status;
   }
+
+  changeAndPassCustomerData(data:CustomerModel){
+    this.layoutChoose = "portifolio";
+    this.allDataService.customerData = data;
+    console.log(data.name);
+  }
+
+  
 
 uploadImg(event){
   this.fileImg = event.target.files[0];
