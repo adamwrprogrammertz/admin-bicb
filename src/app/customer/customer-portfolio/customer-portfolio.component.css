@@ -88,6 +88,6 @@ table {
     border-left: none;
     border-color: rgb(192, 192, 192);
 }
-mat-list-icon {
+* {
     color: grey;
 }
