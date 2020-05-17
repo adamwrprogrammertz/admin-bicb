@@ -32,6 +32,8 @@ import { MomentPipe } from './moment.pipe';
 import { CustomerPortfolioComponent } from './customer/customer-portfolio/customer-portfolio.component';
 import { SuccesedPaymentComponent } from './payment/succesed-payment/succesed-payment.component';
 
+import { MatListModule } from '@angular/material/list';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +61,7 @@ import { SuccesedPaymentComponent } from './payment/succesed-payment/succesed-pa
     MaterialModule,
     FormsModule,
     MatInputModule,
-
+    MatListModule,
 
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule, // firestore
