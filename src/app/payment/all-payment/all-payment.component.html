@@ -6,6 +6,10 @@
         {{customerDetails.payload.doc.data().name}}
       </mat-panel-title>
 
+      <mat-panel-description>
+        {{"Loan was Taken: "+customerDetails.payload.doc.data().birth}}
+      </mat-panel-description>
+
     </mat-expansion-panel-header>
 
     <div fxLayout="row" fxLayoutAlign="space-between center">
@@ -22,7 +26,7 @@ style=" fill:#000000;"><path fill="#bae0bd" d="M3.5 12.59L3.5 7.5 12.5 7.5 12.5 
   <path fill="#fff" d="M8 5.5A1.5 1.5 0 1 0 8 8.5A1.5 1.5 0 1 0 8 5.5Z"></path>
   <path fill="#5e9c76" d="M8,6c0.551,0,1,0.449,1,1S8.551,8,8,8S7,7.551,7,7S7.449,6,8,6 M8,5C6.895,5,6,5.895,6,7 s0.895,2,2,2s2-0.895,2-2S9.105,5,8,5L8,5z"></path></g><g>
     <path fill="#5e9c76" d="M4 6A1 1 0 1 0 4 8A1 1 0 1 0 4 6Z"></path></g><g><path fill="#5e9c76" d="M12 6A1 1 0 1 0 12 8A1 1 0 1 0 12 6Z"></path></g></svg>
-        <div style="font-weight: 300;font-size: medium;">Total Loan To Pay</div>
+        <div style="font-weight: 300;font-size: medium;">Due Loan</div>
       </div>
 
       <div style="font-weight: 500;font-size:medium;">Tsh 300,000/=</div>
