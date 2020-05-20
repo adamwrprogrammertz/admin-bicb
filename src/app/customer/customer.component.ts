@@ -17,10 +17,12 @@ import { ServiceModelService } from '../all-data-service/service-model.service';
 export class CustomerComponent implements OnInit {
 
   customerObjectFromFirebase:any;
+  onlineValue:any;
 
   layoutChoose:"register"|"all"|"portifolio"="all";
   fileImg:File;
 
+  clientId;
   customerName;
   customerNature;
   customerPhone;
@@ -53,7 +55,12 @@ export class CustomerComponent implements OnInit {
         //No data
       }
 
-    })
+    });
+
+    //Check Internet Connection
+    this.allDataService.checkOnlineStatus$().subscribe(isOnline =>{
+      this.onlineValue = isOnline;
+    });
   }
 
   changeLayout(status){
@@ -66,7 +73,7 @@ export class CustomerComponent implements OnInit {
     console.log(data.name);
   }
 
-  
+
 
 uploadImg(event){
   this.fileImg = event.target.files[0];

@@ -1,155 +1,176 @@
 
-<div *ngIf="layoutChoose === 'all'">
-  <mat-list role="list">
+<div *ngIf="onlineValue === true">
 
-    <mat-list-item role="listitem" style="margin-bottom: 40px;cursor: pointer;"
-     *ngFor="let customerDetails of customerObjectFromFirebase"
-     (click)="changeAndPassCustomerData(
+  <div *ngIf="layoutChoose === 'all'">
+    <mat-list role="list">
 
-     {
-      customerImgFile:customerDetails.payload.doc.data().customerImgFile,
-      name:customerDetails.payload.doc.data().name,
-      nature:customerDetails.payload.doc.data().nature,
-      phone:customerDetails.payload.doc.data().phone,
-      gender:customerDetails.payload.doc.data().gender,
-      birth:customerDetails.payload.doc.data().birth,
-      maritalStatus:customerDetails.payload.doc.data().maritalStatus,
-      id_type:customerDetails.payload.doc.data().id_type,
-      id_number:customerDetails.payload.doc.data().id_number,
-      spauseName:customerDetails.payload.doc.data().spauseName,
-      residentAddress:customerDetails.payload.doc.data().residentAddress}
+      <mat-list-item role="listitem" style="margin-bottom: 40px;cursor: pointer;"
+       *ngFor="let customerDetails of customerObjectFromFirebase"
+       (click)="changeAndPassCustomerData(
 
-      )">
-      <mat-card inPutCard >
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-          <div fxLayout="row">
+       {
+        customerImgFile:customerDetails.payload.doc.data().customerImgFile,
+        name:customerDetails.payload.doc.data().name,
+        nature:customerDetails.payload.doc.data().nature,
+        phone:customerDetails.payload.doc.data().phone,
+        gender:customerDetails.payload.doc.data().gender,
+        birth:customerDetails.payload.doc.data().birth,
+        maritalStatus:customerDetails.payload.doc.data().maritalStatus,
+        id_type:customerDetails.payload.doc.data().id_type,
+        id_number:customerDetails.payload.doc.data().id_number,
+        spauseName:customerDetails.payload.doc.data().spauseName,
+        residentAddress:customerDetails.payload.doc.data().residentAddress}
 
-            <img src={{customerDetails.payload.doc.data().customerImgFile}} style="border-radius: 50%;width: 50px;height: 50px;">
+        )">
+        <mat-card inPutCard >
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxLayout="row">
 
-            <div fxLayout="column" fxLayoutAlign="space-around start" style="margin-left: 10px;">
-              <div>{{customerDetails.payload.doc.data().name}}</div>
-              <div style="font-weight: 100;font-size: small;">{{"Added By "+customerDetails.payload.doc.data().adminName}}</div>
+              <img src={{customerDetails.payload.doc.data().customerImgFile}} style="border-radius: 50%;width: 50px;height: 50px;">
+
+              <div fxLayout="column" fxLayoutAlign="space-around start" style="margin-left: 10px;">
+                <div>{{customerDetails.payload.doc.data().name}}</div>
+                <div style="font-weight: 100;font-size: small;">{{"Added By "+customerDetails.payload.doc.data().adminName}}</div>
+              </div>
+
             </div>
+            <button mat-flat-button color="primary">Completed</button>
 
           </div>
-          <button mat-flat-button color="primary">Completed</button>
+        </mat-card>
+      </mat-list-item>
 
-        </div>
+    </mat-list>
+  </div>
+
+  <div *ngIf="layoutChoose === 'portifolio' ">
+    <mat-icon (click)="changeLayout('all')" style="cursor: pointer;">keyboard_backspace</mat-icon>
+    <app-customer-portfolio></app-customer-portfolio>
+  </div>
+
+  <div *ngIf="layoutChoose === 'register' ">
+
+    <mat-card inPutCard>
+      <label for="file">Choose Customer Image</label>
+      <input class="fileInput" type="file" (change)="uploadImg($event)" accept=".png,.jpg" />
+    </mat-card>
+
+    <form class="form" #form="ngForm" (ngSubmit)="onSubmit()">
+
+      <mat-card inPutCard >
+        <mat-form-field class="formFieldContent ">
+          <mat-label>Client Id</mat-label>
+          <input matInput required name= "customer_name" [(ngModel)]="clientId" placeholder="Client Id">
+        </mat-form-field>
       </mat-card>
-    </mat-list-item>
 
-  </mat-list>
-</div>
-
-<div *ngIf="layoutChoose === 'portifolio' ">
-  <mat-icon (click)="changeLayout('all')" style="cursor: pointer;">keyboard_backspace</mat-icon>
-  <app-customer-portfolio></app-customer-portfolio>
-</div>
-
-<div *ngIf="layoutChoose === 'register' ">
-
-  <mat-card inPutCard>
-    <label for="file">Choose Customer Image</label>
-    <input class="fileInput" type="file" (change)="uploadImg($event)" accept=".png,.jpg" />
-  </mat-card>
-
-  <form class="form" #form="ngForm" (ngSubmit)="onSubmit()">
-
-    <mat-card inPutCard >
-      <mat-form-field class="formFieldContent ">
-        <mat-label>Customer Name</mat-label>
-        <input matInput required name= "customer_name" [(ngModel)]="customerName" placeholder="Customer Name">
-      </mat-form-field>
-    </mat-card>
+      <mat-card inPutCard >
+        <mat-form-field class="formFieldContent ">
+          <mat-label>Customer Name</mat-label>
+          <input matInput required name= "customer_name" [(ngModel)]="customerName" placeholder="Customer Name">
+        </mat-form-field>
+      </mat-card>
 
 
-    <mat-card inPutCard >
-      <mat-form-field class="formFieldContent ">
-        <mat-label>Nature Of Customer</mat-label>
-        <input matInput placeholder="Nature Of Customer" name= "customer_nature" required [(ngModel)]="customerNature">
-      </mat-form-field>
-    </mat-card>
+      <mat-card inPutCard >
+        <mat-form-field class="formFieldContent ">
+          <mat-label>Nature Of Customer</mat-label>
+          <input matInput placeholder="Nature Of Customer" name= "customer_nature" required [(ngModel)]="customerNature">
+        </mat-form-field>
+      </mat-card>
 
-    <mat-card inPutCard >
-      <mat-form-field class="formFieldContent">
-        <mat-label>Telephone</mat-label>
-        <span matPrefix>+255 &nbsp;</span>
-        <input type="tel" matInput placeholder="XXX-000-000" required name= "customer_tel" [(ngModel)]="customerPhone">
-        <mat-icon matSuffix>mode_edit</mat-icon>
-      </mat-form-field>
-    </mat-card>
-
-
-    <mat-card inPutCard >
-      <mat-form-field class="formFieldContent ">
-        <mat-label>Gender</mat-label>
-        <select matNativeControl required [(ngModel)]="customerGender" name= "customer_gender">
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
-      </mat-form-field>
-    </mat-card>
-
-    <mat-card inPutCard >
-      <mat-form-field class="formFieldContent ">
-        <mat-label>Date of Birth</mat-label>
-        <input matInput [matDatepicker]="picker" required [(ngModel)]="customerBirth" name= "customer_birth">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-    </mat-card>
-
-    <mat-card inPutCard >
-      <mat-form-field class="formFieldContent ">
-        <mat-label>Marital Status</mat-label>
-        <select matNativeControl required [(ngModel)]="customerMarital" name= "customer_marital_status">
-          <option value="married">Married</option>
-          <option value="single">Single</option>
-          <option value="Widow">Widow</option>
-        </select>
-      </mat-form-field>
-    </mat-card>
-
-    <mat-card inPutCard >
-      <mat-form-field class="formFieldContent ">
-        <mat-label>Id Type</mat-label>
-        <select matNativeControl required [(ngModel)]="customerIdType" name= "customer_id_type">
-          <option value="National_Id">National Id</option>
-          <option value="Kadi_Ya_Kupiga_Kura">Kadi Ya Kupiga Kura</option>
-          <option value="Driving_Licence">Driving Licence</option>
-
-        </select>
-      </mat-form-field>
-    </mat-card>
-
-    <mat-card inPutCard >
-      <mat-form-field class="formFieldContent ">
-        <mat-label>Id Number</mat-label>
-        <input matInput placeholder="Id Number" required [(ngModel)]="customerIdNumber" name= "customer_id_number">
-      </mat-form-field>
-    </mat-card>
-
-    <mat-card inPutCard >
-      <mat-form-field class="formFieldContent ">
-        <mat-label>Spause Name</mat-label>
-        <input matInput placeholder="Spause Name" [required]="customerMarital === 'married' " [(ngModel)]="customerSpauseName" name= "customer_spause_name">
-      </mat-form-field>
-    </mat-card>
-
-    <mat-card inPutCard >
-      <mat-form-field class="formFieldContent ">
-        <mat-label>Residental Address</mat-label>
-        <input matInput placeholder="Residental Address" required [(ngModel)]="customerResidentalAddress" name= "customer_address">
-      </mat-form-field>
-    </mat-card>
+      <mat-card inPutCard >
+        <mat-form-field class="formFieldContent">
+          <mat-label>Telephone</mat-label>
+          <span matPrefix>+255 &nbsp;</span>
+          <input type="tel" matInput placeholder="XXX-000-000" required name= "customer_tel" [(ngModel)]="customerPhone">
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
+      </mat-card>
 
 
-    <button mat-raised-button type="submit" style="margin-right: 10px;" [disabled]="form.invalid">Register</button>
-    <button mat-raised-button (click)="changeLayout('all')">Show Customers</button>
+      <mat-card inPutCard >
+        <mat-form-field class="formFieldContent ">
+          <mat-label>Gender</mat-label>
+          <select matNativeControl required [(ngModel)]="customerGender" name= "customer_gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </mat-form-field>
+      </mat-card>
 
-  </form>
+      <mat-card inPutCard >
+        <mat-form-field class="formFieldContent ">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput [matDatepicker]="picker" required [(ngModel)]="customerBirth" name= "customer_birth">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </mat-card>
+
+      <mat-card inPutCard >
+        <mat-form-field class="formFieldContent ">
+          <mat-label>Marital Status</mat-label>
+          <select matNativeControl required [(ngModel)]="customerMarital" name= "customer_marital_status">
+            <option value="married">Married</option>
+            <option value="single">Single</option>
+            <option value="Widow">Widow</option>
+          </select>
+        </mat-form-field>
+      </mat-card>
+
+      <mat-card inPutCard >
+        <mat-form-field class="formFieldContent ">
+          <mat-label>Id Type</mat-label>
+          <select matNativeControl required [(ngModel)]="customerIdType" name= "customer_id_type">
+            <option value="National_Id">National Id</option>
+            <option value="Kadi_Ya_Kupiga_Kura">Kadi Ya Kupiga Kura</option>
+            <option value="Driving_Licence">Driving Licence</option>
+
+          </select>
+        </mat-form-field>
+      </mat-card>
+
+      <mat-card inPutCard >
+        <mat-form-field class="formFieldContent ">
+          <mat-label>Id Number</mat-label>
+          <input matInput placeholder="Id Number" required [(ngModel)]="customerIdNumber" name= "customer_id_number">
+        </mat-form-field>
+      </mat-card>
+
+      <mat-card inPutCard >
+        <mat-form-field class="formFieldContent ">
+          <mat-label>Spause Name</mat-label>
+          <input matInput placeholder="Spause Name" [required]="customerMarital === 'married' " [(ngModel)]="customerSpauseName" name= "customer_spause_name">
+        </mat-form-field>
+      </mat-card>
+
+      <mat-card inPutCard >
+        <mat-form-field class="formFieldContent ">
+          <mat-label>Residental Address</mat-label>
+          <input matInput placeholder="Residental Address" required [(ngModel)]="customerResidentalAddress" name= "customer_address">
+        </mat-form-field>
+      </mat-card>
+
+
+      <button mat-raised-button type="submit" style="margin-right: 10px;" [disabled]="form.invalid">Register</button>
+      <button mat-raised-button (click)="changeLayout('all')">Show Customers</button>
+
+    </form>
+
+  </div>
 
 </div>
+
+<div *ngIf="onlineValue === false" fxLayout="column" fxLayoutAlign="center center">
+
+  <img src="assets/no_connection.png"/>
+
+  <h3>Please Connect To Internet</h3>
+
+</div>
+
+
 
 
 <button mat-fab color="primary" style=" position: fixed !important;right: 50px;top:600px " (click)="changeLayout('register')" *ngIf="layoutChoose !== 'register' ">

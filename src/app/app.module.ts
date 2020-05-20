@@ -39,6 +39,7 @@ import { SummaryPaymentComponent } from './payment/summary-payment/summary-payme
 
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { UserTasksComponent } from './home/user-tasks/user-tasks.component';
+
 @NgModule({
   declarations: [
     AppComponent,

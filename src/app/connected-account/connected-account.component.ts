@@ -3,6 +3,7 @@ import { StatusCheckService } from '../status-check.service';
 import { AllFireService } from '../all-fire.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ServiceModelService } from '../all-data-service/service-model.service';
 
 @Component({
   selector: 'app-connected-account',
@@ -12,10 +13,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class ConnectedAccountComponent implements OnInit {
   customerObjectFromFirebase: any;
   buttonStatusValue:any;
-
+  onlineValue:any;
 
   constructor(public serviceFb:AllFireService,
     private statuService:StatusCheckService,
+    private allDataService:ServiceModelService,
     private afAuth:AngularFireAuth,
     private snackBar:MatSnackBar,) { }
 
@@ -36,6 +38,13 @@ export class ConnectedAccountComponent implements OnInit {
         console.log(this.buttonStatusValue);
       })
     });
+
+    //Check Internet Connection
+  this.allDataService.checkOnlineStatus$().subscribe(isOnline =>{
+    this.onlineValue = isOnline;
+  });
+
+
   }
 
   activateUser(){
@@ -45,6 +54,8 @@ export class ConnectedAccountComponent implements OnInit {
       this.snackBar.open("Successful Activated 🥳🥳","",{duration:2000})
     })
   }
+
+
 
 
 }
