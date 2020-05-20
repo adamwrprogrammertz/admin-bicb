@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceModelService } from '../all-data-service/service-model.service';
 
 @Component({
   selector: 'app-payment',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
+  onlineValue:any;
 
-  constructor() { }
+  constructor(
+    private allDataService:ServiceModelService,) { }
 
   ngOnInit(): void {
+
+     //Check Internet Connection
+  this.allDataService.checkOnlineStatus$().subscribe(isOnline =>{
+    this.onlineValue = isOnline;
+  });
+  
   }
 
   tabChanged(event){

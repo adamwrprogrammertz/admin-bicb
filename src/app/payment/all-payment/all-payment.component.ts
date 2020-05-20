@@ -4,6 +4,7 @@ import { StatusCheckService } from '../../status-check.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import * as moment from 'moment';
+import { ServiceModelService } from 'src/app/all-data-service/service-model.service';
 
 @Component({
   selector: 'app-all-payment',
@@ -31,6 +32,9 @@ export class AllPaymentComponent implements OnInit {
         //No data
       }
     });
+
+
+
   }
 
 }

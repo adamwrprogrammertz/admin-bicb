@@ -1,11 +1,28 @@
-<mat-tab-group (selectedTabChange)="tabChanged($event)">
-  <mat-tab label="All">
-    <app-all-payment></app-all-payment>
-  </mat-tab>
-  <mat-tab label="Succeeded">
-    <app-succesed-payment></app-succesed-payment>
-  </mat-tab>
-  <mat-tab label="Summary">
-    <app-summary-payment></app-summary-payment>
-  </mat-tab>
-</mat-tab-group>
+
+
+
+<div *ngIf="onlineValue === true">
+
+  <mat-tab-group (selectedTabChange)="tabChanged($event)">
+    <mat-tab label="All">
+      <app-all-payment></app-all-payment>
+    </mat-tab>
+    <mat-tab label="Succeeded">
+      <app-succesed-payment></app-succesed-payment>
+    </mat-tab>
+    <mat-tab label="Summary">
+      <app-summary-payment></app-summary-payment>
+    </mat-tab>
+  </mat-tab-group>
+
+
+</div>
+
+
+<div *ngIf="onlineValue === false" fxLayout="column" fxLayoutAlign="center center">
+
+  <img src="assets/no_connection.png"/>
+
+  <h3>Please Connect To Internet</h3>
+
+</div>
