@@ -3,7 +3,8 @@
 
 <div *ngIf="onlineValue === true">
 
-  <div>
+
+  <div *ngIf="noDataStatus === true">
     <mat-list role="list">
 
       <mat-list-item role="listitem" style="margin-bottom:40px;" *ngFor="let customerDetails of customerObjectFromFirebase">
@@ -23,6 +24,11 @@
 
 
     </mat-list>
+  </div>
+
+  <div *ngIf="noDataStatus === true" fxLayout="column" fxLayoutAlign="center center">
+    <img src="https://img.icons8.com/cotton/96/000000/database-error.png"/>
+    <h3>No data Present Rightnow</h3>
   </div>
 
 </div>

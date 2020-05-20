@@ -1,47 +1,56 @@
 
 <div *ngIf="onlineValue === true">
 
-  <div *ngIf="layoutChoose === 'all'">
-    <mat-list role="list">
+  <div *ngIf="noDataStatus === false">
+    <div *ngIf="layoutChoose === 'all'">
+      <mat-list role="list">
 
-      <mat-list-item role="listitem" style="margin-bottom: 40px;cursor: pointer;"
-       *ngFor="let customerDetails of customerObjectFromFirebase"
-       (click)="changeAndPassCustomerData(
+        <mat-list-item role="listitem" style="margin-bottom: 40px;cursor: pointer;"
+         *ngFor="let customerDetails of customerObjectFromFirebase"
+         (click)="changeAndPassCustomerData(
 
-       {
-        customerImgFile:customerDetails.payload.doc.data().customerImgFile,
-        name:customerDetails.payload.doc.data().name,
-        nature:customerDetails.payload.doc.data().nature,
-        phone:customerDetails.payload.doc.data().phone,
-        gender:customerDetails.payload.doc.data().gender,
-        birth:customerDetails.payload.doc.data().birth,
-        maritalStatus:customerDetails.payload.doc.data().maritalStatus,
-        id_type:customerDetails.payload.doc.data().id_type,
-        id_number:customerDetails.payload.doc.data().id_number,
-        spauseName:customerDetails.payload.doc.data().spauseName,
-        residentAddress:customerDetails.payload.doc.data().residentAddress}
+         {
+          customerImgFile:customerDetails.payload.doc.data().customerImgFile,
+          customerCode:customerDetails.payload.doc.data().customerCode,
+          name:customerDetails.payload.doc.data().name,
+          nature:customerDetails.payload.doc.data().nature,
+          phone:customerDetails.payload.doc.data().phone,
+          gender:customerDetails.payload.doc.data().gender,
+          birth:customerDetails.payload.doc.data().birth,
+          maritalStatus:customerDetails.payload.doc.data().maritalStatus,
+          id_type:customerDetails.payload.doc.data().id_type,
+          id_number:customerDetails.payload.doc.data().id_number,
+          spauseName:customerDetails.payload.doc.data().spauseName,
+          residentAddress:customerDetails.payload.doc.data().residentAddress}
 
-        )">
-        <mat-card inPutCard >
-          <div fxLayout="row" fxLayoutAlign="space-between center">
-            <div fxLayout="row">
+          )">
+          <mat-card inPutCard >
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+              <div fxLayout="row">
 
-              <img src={{customerDetails.payload.doc.data().customerImgFile}} style="border-radius: 50%;width: 50px;height: 50px;">
+                <img src={{customerDetails.payload.doc.data().customerImgFile}} style="border-radius: 50%;width: 50px;height: 50px;">
 
-              <div fxLayout="column" fxLayoutAlign="space-around start" style="margin-left: 10px;">
-                <div>{{customerDetails.payload.doc.data().name}}</div>
-                <div style="font-weight: 100;font-size: small;">{{"Added By "+customerDetails.payload.doc.data().adminName}}</div>
+                <div fxLayout="column" fxLayoutAlign="space-around start" style="margin-left: 10px;">
+                  <div>{{customerDetails.payload.doc.data().name}}</div>
+                  <div style="font-weight: 100;font-size: small;">{{"Added By "+customerDetails.payload.doc.data().adminName}}</div>
+                </div>
+
               </div>
+              <button mat-flat-button color="primary">Completed</button>
 
             </div>
-            <button mat-flat-button color="primary">Completed</button>
+          </mat-card>
+        </mat-list-item>
+      </mat-list>
 
-          </div>
-        </mat-card>
-      </mat-list-item>
-
-    </mat-list>
+    </div>
   </div>
+
+  <div *ngIf="noDataStatus === true" fxLayout="column" fxLayoutAlign="center center">
+    <img src="https://img.icons8.com/cotton/96/000000/database-error.png"/>
+    <h3>No data Present Rightnow</h3>
+  </div>
+
 
   <div *ngIf="layoutChoose === 'portifolio' ">
     <mat-icon (click)="changeLayout('all')" style="cursor: pointer;">keyboard_backspace</mat-icon>

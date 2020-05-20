@@ -14,6 +14,7 @@ export class ConnectedAccountComponent implements OnInit {
   customerObjectFromFirebase: any;
   buttonStatusValue:any;
   onlineValue:any;
+  noDataStatus:any;
 
   constructor(public serviceFb:AllFireService,
     private statuService:StatusCheckService,
@@ -24,11 +25,14 @@ export class ConnectedAccountComponent implements OnInit {
   ngOnInit(): void {
     this.statuService.progressBarStatus = true;
     this.serviceFb.getAllCustomerDetail().subscribe(datas=>{
-      if(datas != null){
+      if(datas.length != 0){
         this.customerObjectFromFirebase = datas;
         this.statuService.progressBarStatus = false;
+        this.noDataStatus = false;
       }else{
         //No data
+        this.noDataStatus = true;
+        this.statuService.progressBarStatus = false;
       }
     });
 

@@ -1,7 +1,7 @@
 
 export interface CustomerModel{
   customerImgFile:any;
-
+  customerCode:string;
   name:string;
   nature:string;
   phone:string;

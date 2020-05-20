@@ -18,10 +18,10 @@ export class CustomerComponent implements OnInit {
 
   customerObjectFromFirebase:any;
   onlineValue:any;
+  noDataStatus:any;
 
   layoutChoose:"register"|"all"|"portifolio"="all";
   fileImg:File;
-
   clientId;
   customerName;
   customerNature;
@@ -48,11 +48,16 @@ export class CustomerComponent implements OnInit {
   ngOnInit(): void {
     this.statuService.progressBarStatus = true;
     this.serviceFb.getAllCustomerDetail().subscribe(datas=>{
-      if(datas != null){
+      if(datas.length != 0){
         this.customerObjectFromFirebase = datas;
         this.statuService.progressBarStatus = false;
+        this.noDataStatus = false;
       }else{
         //No data
+        this.noDataStatus = true;
+        console.log("No data")
+        this.statuService.progressBarStatus = false;
+
       }
 
     });
@@ -89,6 +94,7 @@ onSubmit(){
 
       this.serviceFb.uploadCustomerDetails({
         customerImgFile:this.imgCustomerUrl,
+        customerCode:this.clientId,
         name:this.customerName,
         nature:this.customerNature,
         phone:this.customerPhone,
@@ -114,6 +120,21 @@ onSubmit(){
         this.customerSpauseName = "";
         this.customerResidentalAddress = "";
         this.customerImg = "";
+
+        this.serviceFb.uploadCustomerDetail(this.clientId,{
+          customerImgFile:this.imgCustomerUrl,
+          customerCode:this.clientId,
+          name:this.customerName,
+          nature:this.customerNature,
+          phone:this.customerPhone,
+          gender:this.customerGender,
+          birth:this.customerBirth,
+          maritalStatus:this.customerMarital,
+          id_type:this.customerIdType,
+          id_number:this.customerIdNumber,
+          spauseName:this.customerSpauseName === 'married'?this.customerSpauseName:"No Spause",
+          residentAddress:this.customerResidentalAddress
+        })
 
       })
 

@@ -22,6 +22,17 @@ export class AllFireService {
     });
   }
 
+  //Upload Customer Detail
+  async uploadCustomerDetail(customerId:string,data: CustomerModel) {
+    const user = await this.afAuth.currentUser;
+    this.db.collection('Customer').doc(customerId).set({
+      ...data,
+      adminName: user.displayName
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
+
   //Add to App Users
   async addToAppUser() {
     const user = await this.afAuth.currentUser;
