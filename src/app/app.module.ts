@@ -36,6 +36,8 @@ import { SuccesedPaymentComponent } from './payment/succesed-payment/succesed-pa
 import { MatListModule } from '@angular/material/list';
 import { SummaryPaymentComponent } from './payment/summary-payment/summary-payment.component';
 
+
+import { NgCircleProgressModule } from 'ng-circle-progress';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +74,18 @@ import { SummaryPaymentComponent } from './payment/summary-payment/summary-payme
     AngularFireAuthModule, // auth
     AngularFireStorageModule,// storage
 
-    MatNativeDateModule
+    MatNativeDateModule,
+
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300,
+      ...
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
