@@ -8,6 +8,7 @@ import { StatusCheckService } from '../status-check.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CustomerModel } from './customer.model';
 import { ServiceModelService } from '../all-data-service/service-model.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-customer',
@@ -75,6 +76,7 @@ export class CustomerComponent implements OnInit {
   changeAndPassCustomerData(data:CustomerModel){
     this.layoutChoose = "portifolio";
     this.allDataService.customerData = data;
+    this.allDataService.customerId = data.customerCode;
     console.log(data.name);
   }
 
@@ -107,18 +109,6 @@ onSubmit(){
         residentAddress:this.customerResidentalAddress
 
       }).then(()=>{
-        this.statuService.progressBarStatus = false;
-        this.customerName = "";
-        this.customerNature = "";
-        this.customerPhone = "";
-        this.customerGender = "";
-        this.customerBirth = "";
-        this.customerMarital = "";
-        this.customerIdType = "";
-        this.customerIdNumber = "";
-        this.customerSpauseName = "";
-        this.customerResidentalAddress = "";
-        this.customerImg = "";
 
         this.serviceFb.uploadCustomerDetail(this.clientId,{
           customerImgFile:this.imgCustomerUrl,
@@ -134,6 +124,18 @@ onSubmit(){
           spauseName:this.customerSpauseName === 'married'?this.customerSpauseName:"No Spause",
           residentAddress:this.customerResidentalAddress
         }).then(()=>{
+        this.statuService.progressBarStatus = false;
+        this.customerName = "";
+        this.customerNature = "";
+        this.customerPhone = "";
+        this.customerGender = "";
+        this.customerBirth = "";
+        this.customerMarital = "";
+        this.customerIdType = "";
+        this.customerIdNumber = "";
+        this.customerSpauseName = "";
+        this.customerResidentalAddress = "";
+        this.customerImg = "";
         this.snackBar.open("Customer Detail Published 😁😁","",{duration:2000});
         })
 

@@ -2,8 +2,8 @@
 <div fxLayout="column" fxLayoutAlign="space-between center">
 
   <div fxLayout="column" fxLayoutAlign="space-between center" >
-    <img src={{allDataService.customerData.customerImgFile}} class="c_image">
-    <div class="CustomerName">{{allDataService.customerData.name}}</div>
+    <img src={{customerImg}} class="c_image">
+    <div class="CustomerName">{{customerName}}</div>
   </div>
 </div>
 
@@ -14,19 +14,19 @@
       <mat-list-item>
         <mat-icon mat-list-icon>perm_identity</mat-icon>
         <div mat-line>Client Number</div>
-        <div mat-line>000021</div>
+        <div mat-line>{{clientId}}</div>
       </mat-list-item>
 
       <mat-list-item>
         <mat-icon mat-list-icon>loop</mat-icon>
         <div mat-line>Client Type</div>
-        <div mat-line>{{allDataService.customerData.nature}}</div>
+        <div mat-line>{{customerNature}}</div>
       </mat-list-item>
 
       <mat-list-item>
         <mat-icon mat-list-icon>call</mat-icon>
         <div mat-line>Contacts</div>
-        <div mat-line>{{allDataService.customerData.phone}}</div>
+        <div mat-line>{{"0"+customerPhone}}</div>
         <button mat-icon-button mat-button>
           <mat-icon>edit</mat-icon>
         </button>
@@ -35,7 +35,7 @@
        <mat-list-item>
         <mat-icon mat-list-icon>location_on</mat-icon>
         <div mat-line>Address</div>
-        <div mat-line>{{allDataService.customerData.residentAddress}}</div>
+        <div mat-line>{{customerResidentalAddress}}</div>
         <button mat-icon-button  mat-button>
           <mat-icon>edit</mat-icon>
         </button>
@@ -48,7 +48,7 @@
       (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            {{allDataService.customerData.name}}
+            {{customerName}}
           </mat-panel-title>
           <mat-panel-description>
             {{panelOpenState ? 'Less' : 'More'}} About Client
@@ -72,25 +72,25 @@
               </g>
             </svg>
             <div mat-line>Gender</div>
-            <div mat-line>{{allDataService.customerData.gender}}</div>
+            <div mat-line>{{customerGender}}</div>
           </mat-list-item>
 
           <mat-list-item>
             <mat-icon mat-list-icon>cake</mat-icon>
             <div mat-line>Birthday</div>
-            <div mat-line>{{allDataService.customerData.birth}}</div>
+            <div mat-line>{{customerBirth|date: 'dd/MM/yyyy'}}</div>
           </mat-list-item>
 
           <mat-list-item>
             <mat-icon mat-list-icon>favorite</mat-icon>
             <div mat-line>Marital status</div>
-            <div mat-line>{{allDataService.customerData.maritalStatus}}</div>
+            <div mat-line>{{customerMarital}}</div>
           </mat-list-item>
 
           <mat-list-item>
             <mat-icon mat-list-icon>card_membership</mat-icon>
             <div mat-line>ID Type</div>
-            <div mat-line>{{allDataService.customerData.id_type}}</div>
+            <div mat-line>{{customerIdType}}</div>
             <button mat-icon-button mat-button>
               <mat-icon>edit</mat-icon>
             </button>
@@ -99,7 +99,7 @@
           <mat-list-item>
             <mat-icon mat-list-icon>fingerprint</mat-icon>
             <div mat-line>ID Number</div>
-            <div mat-line>{{allDataService.customerData.id_number}}</div>
+            <div mat-line>{{customerIdNumber}}</div>
             <button mat-icon-button mat-button>
               <mat-icon>edit</mat-icon>
             </button>

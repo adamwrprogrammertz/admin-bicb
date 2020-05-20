@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceModelService } from '../../all-data-service/service-model.service';
+import { AllFireService } from 'src/app/all-fire.service';
+import { StatusCheckService } from 'src/app/status-check.service';
 
 export interface Repayments {
   date: string;
@@ -21,15 +23,60 @@ const ELEMENT_DATA: Repayments[] = [
   styleUrls: ['./customer-portfolio.component.css']
 })
 export class CustomerPortfolioComponent implements OnInit {
+
   displayedColumns: string[] = ['position', 'date', 'debit', 'credit'];
   dataSource = ELEMENT_DATA;
+  onlineValue:any;
+  noDataStatus:any;
 
-  panelOpenState = false;  
+  panelOpenState = false;
 
 
-  constructor(public allDataService:ServiceModelService) { }
+  clientId;
+  customerName;
+  customerNature;
+  customerPhone;
+  customerGender;
+  customerBirth;
+  customerMarital;
+  customerIdType;
+  customerIdNumber;
+  customerSpauseName;
+  customerResidentalAddress;
+  customerImg;
+
+  constructor(public allDataService:ServiceModelService,
+    private statuService:StatusCheckService,
+    public serviceFb:AllFireService,) { }
 
   ngOnInit(): void {
+    this.statuService.progressBarStatus = true;
+    this.serviceFb.getCustomerDetail(this.allDataService.customerId).subscribe(datas=>{
+      if(datas.length != 0){
+        this.statuService.progressBarStatus = false;
+        this.noDataStatus = false;
+
+        datas.forEach(value=>{
+          console.log(value)
+          this.clientId = value['customerCode'];
+          this.customerImg = value['customerImgFile'];
+          this.customerName = value['name'];
+          this.customerNature = value['nature'];
+          this.customerPhone = value['phone'];
+          this.customerResidentalAddress = value['residentAddress'];
+          this.customerGender = value['gender'];
+          this.customerBirth = new Date(value['birth'].toDate());
+          console.log(this.customerBirth);
+          this.customerMarital = value['maritalStatus'];
+          this.customerIdType = value['id_type'];
+          this.customerIdNumber = value['id_number'];
+        })
+      }else{
+        //No data
+        this.noDataStatus = true;
+        this.statuService.progressBarStatus = false;
+      }
+    });
   }
 
 

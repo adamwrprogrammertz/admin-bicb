@@ -50,6 +50,11 @@ export class AllFireService {
     return this.db.collection('CustomerDetails').snapshotChanges();
   }
 
+  //Get customer detail
+  getCustomerDetail(clientId:string){
+   return this.db.collection('CustomerDetails',ref => ref.where('customerCode','==',clientId)).valueChanges();
+  }
+
   //Get App Status
   getActivateStatus(){
     return this.db.collection('AppUsers').snapshotChanges();

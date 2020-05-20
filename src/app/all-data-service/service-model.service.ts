@@ -10,6 +10,8 @@ import { map } from 'rxjs/operators';
 export class ServiceModelService {
 
   customerData:CustomerModel;
+  customerId:any;
+
 
   constructor() { }
 
