@@ -80,11 +80,12 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
       radius: 100,
       outerStrokeWidth: 16,
       innerStrokeWidth: 8,
-      outerStrokeColor: "#EDE7F6",
-      innerStrokeColor: "#C7E596",
+      outerStrokeColor: "rgb(212, 183, 255)",
+      innerStrokeColor: "#EDE7F6",
       animationDuration: 300,
       unitsColor:"grey",
-      titleColor:"grey"
+      titleColor:"grey",
+      animation: true
     })
   ],
   providers: [],

@@ -1,16 +1,46 @@
 <section class="container spaced">
     <div class="smallcard">
         <div class="card_head">New leads this month</div>
-        <circle-progress 
-           [percent]="85" 
-           [radius]="23" 
-           [outerStrokeWidth]="4" 
-           [innerStrokeWidth]="0"
-           [innerStrokeColor]="'#C7E596'"  
-           [animation]="true"
-           [animationDuration]="700"
-           [showSubtitle]="false">
-        </circle-progress>
+        <div class="card_contents">
+            <circle-progress smallCard_per [showUnits]="false" [percent]="85" [radius]="23" [outerStrokeWidth]="4"
+              [showInnerStroke]="false"
+              [maxPercent]="10000"
+               [animationDuration]="700" [showSubtitle]="false">
+            </circle-progress>
+            <span style="font-size: 2vw; margin: 25px 20px 0 0;">Clients</span>
+        </div>
+    </div>
+    
+    <div class="smallcard">
+        <div class="card_head">Outstanding invoice</div>
+        <div style="text-align: center; margin-top: 40px;">
+            <span>TAX 3 invoices</span>
+            <br>
+            <span style="font-size: 2vw; margin-top: 40px;">300 K </span>
+            <span>TZS</span>
+        </div>
+    </div>
+    
+    <div class="smallcard">
+        <div class="card_head">Revenue this month</div>
+        <div style="text-align: center; margin-top: 50px;">
+            <span style="font-size: 2vw; margin: 20px 20px 0 0;">5,459 K</span>
+            <span>TZS</span>
+        </div>
+    </div>
+    
+    <div class="smallcard">
+        <div class="card_head">Portifolio at risk (PAR)</div>
+        <div class="card_contents">
+            <circle-progress smallCard_per [showUnits]="true" [percent]="47" [radius]="23" [outerStrokeWidth]="4"
+              [showInnerStroke]="false"
+              [animationDuration]="1000"
+              [showSubtitle]="false"
+              [unitsColor]="'rgb(255, 100, 100)'"
+              [outerStrokeColor] = "'rgb(255, 100, 100)'"
+              [titleColor]="'rgb(255, 100, 100)'">
+            </circle-progress>
+        </div>
     </div>
     
     
