@@ -77,13 +77,14 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     MatNativeDateModule,
 
     NgCircleProgressModule.forRoot({
-      // set defaults here
       radius: 100,
       outerStrokeWidth: 16,
       innerStrokeWidth: 8,
-      outerStrokeColor: "#78C000",
+      outerStrokeColor: "#EDE7F6",
       innerStrokeColor: "#C7E596",
       animationDuration: 300,
+      unitsColor:"grey",
+      titleColor:"grey"
     })
   ],
   providers: [],

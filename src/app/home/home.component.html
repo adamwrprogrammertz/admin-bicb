@@ -1,7 +1,17 @@
 <section class="container spaced">
     <div class="smallcard">
         <div class="card_head">New leads this month</div>
+        <circle-progress 
+           [percent]="85" 
+           [radius]="23" 
+           [outerStrokeWidth]="4" 
+           [innerStrokeWidth]="0"
+           [innerStrokeColor]="'#C7E596'"  
+           [animation]="true"
+           [animationDuration]="700"
+           [showSubtitle]="false">
+        </circle-progress>
     </div>
-    <percent-circle percent="myPercentModel"></percent-circle>
+    
     
 </section>
