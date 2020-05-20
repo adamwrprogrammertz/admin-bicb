@@ -4,6 +4,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
