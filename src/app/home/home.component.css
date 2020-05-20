@@ -1,6 +1,7 @@
 .container{
     height: auto;
     width: 100%;
+    margin-top: 30px;
 }
 .spaced{
     display: flex;
@@ -14,6 +15,12 @@
     overflow: hidden;
     color: grey;
 }
+.task_opportunities{
+    height: 350px;
+    width: 49%;
+    border-radius: 5px;
+    background-color: white;
+}
 .card_head{
     width: 100%;
     height: auto;
@@ -25,6 +32,12 @@
     border-right: none;
     text-indent: 15px;
     margin-top: 5px; 
+}
+.task_contanier{
+    height: 320px;
+    width: 100%;
+    float: left;
+    overflow-y: scroll;
 }
 
 .card_contents{

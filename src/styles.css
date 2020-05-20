@@ -6,3 +6,24 @@ body {
   font-family: 'Ubuntu', sans-serif;
   background-color: #EDE7F6;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(232, 222, 248);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(201, 164, 255);
+}

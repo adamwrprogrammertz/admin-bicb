@@ -25,7 +25,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatBadgeModule } from '@angular/material/badge';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { MatInputModule } from '@angular/material/input';
 import { AllPaymentComponent } from './payment/all-payment/all-payment.component';
@@ -38,6 +38,7 @@ import { SummaryPaymentComponent } from './payment/summary-payment/summary-payme
 
 
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { UserTasksComponent } from './home/user-tasks/user-tasks.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +58,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     CustomerPortfolioComponent,
     SuccesedPaymentComponent,
     SummaryPaymentComponent,
+    UserTasksComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +69,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     FormsModule,
     MatInputModule,
     MatListModule,
-    MatBadgeModule,
+    MatDialogModule,
 
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule, // firestore
