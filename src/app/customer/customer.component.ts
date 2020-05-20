@@ -108,7 +108,6 @@ onSubmit(){
 
       }).then(()=>{
         this.statuService.progressBarStatus = false;
-        this.snackBar.open("Customer Detail Published 😁😁","",{duration:2000});
         this.customerName = "";
         this.customerNature = "";
         this.customerPhone = "";
@@ -134,6 +133,8 @@ onSubmit(){
           id_number:this.customerIdNumber,
           spauseName:this.customerSpauseName === 'married'?this.customerSpauseName:"No Spause",
           residentAddress:this.customerResidentalAddress
+        }).then(()=>{
+        this.snackBar.open("Customer Detail Published 😁😁","",{duration:2000});
         })
 
       })

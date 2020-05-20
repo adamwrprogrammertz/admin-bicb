@@ -45,7 +45,7 @@ export class ConnectedAccountComponent implements OnInit {
 
     //Check Internet Connection
   this.allDataService.checkOnlineStatus$().subscribe(isOnline =>{
-    this.onlineValue = isOnline;
+  this.onlineValue = isOnline;
   });
 
 
@@ -58,8 +58,6 @@ export class ConnectedAccountComponent implements OnInit {
       this.snackBar.open("Successful Activated 🥳🥳","",{duration:2000})
     })
   }
-
-
 
 
 }
