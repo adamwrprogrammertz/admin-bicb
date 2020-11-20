@@ -20,7 +20,7 @@ export class AppComponent {
         statusService.checkStatus = true;
         this.snackBar.open("Welcome "+data.displayName,"",{duration:2000});
       }else{
-
+        
       }
     })
   }
